@@ -97,14 +97,61 @@
   function sync() {
     document.documentElement.classList.toggle('mobile-layout',mq.matches);
     if(lead) {
-      lead.dataset.zh=mq.matches?'从机械结构到完整装扮，轻触下方按钮探索每一层。':originalLead.zh;
-      lead.dataset.en=mq.matches?'From the mechanical core to the full outfit. Tap a layer below to explore.':originalLead.en;
+      lead.dataset.zh=mq.matches?'继续向下滑动，看机器人从结构核心逐层成形。':originalLead.zh;
+      lead.dataset.en=mq.matches?'Scroll down to build your companion, layer by layer.':originalLead.en;
       lead.innerHTML=mq.matches?lead.dataset[document.documentElement.dataset.lang==='en'?'en':'zh']:originalLead.html;
     }
     if(phone) phone.setAttribute('href',mq.matches?'tel:+8618661996738':originalPhone);
     if(!mq.matches&&$('#nav-links.open')) $('#burger')?.click();
   }
   mq.addEventListener('change',sync); sync();
+  function assemblyStory() {
+    const root=$('#layers'), inner=$('.pr-layers__inner',root||document);
+    if(!root||!inner) return;
+    const tabs=$$('[data-layer-to]',root), count=tabs.length;
+    if(count<2) return;
+    const controls=mobile('m-layer-controls'), status=make('div','m-layer-status');
+    const number=document.createElement('strong');
+    status.append(localized('span','向上滑动 · 逐层装配','Scroll to assemble'),number);
+    const scrub=document.createElement('input'); scrub.type='range';scrub.className='m-layer-scrub';
+    scrub.min='0';scrub.max=String(count-1);scrub.step='1';scrub.value='0';
+    const exit=localized('a','继续探索 ↓','Keep exploring ↓');exit.href='#scenarios';exit.className='m-layer-exit';
+    controls.append(status,scrub,exit);inner.append(controls);root.classList.add('m-scroll-layers');
+    let active=-1, frame=0;
+    function geometry(){
+      const style=getComputedStyle(root), top=parseFloat(getComputedStyle(inner).top)||80;
+      const padding=parseFloat(style.paddingTop)||0, bottom=parseFloat(style.paddingBottom)||0;
+      return {start:root.getBoundingClientRect().top+scrollY+padding-top, travel:Math.max(1,root.offsetHeight-inner.offsetHeight-padding-bottom)};
+    }
+    function paint(){
+      frame=0;if(!mq.matches)return;
+      const {start,travel}=geometry();
+      const progress=Math.max(0,Math.min(1,(scrollY-start)/travel));
+      const index=Math.min(count-1,Math.floor(progress*count));
+      if(index!==active){
+        active=index;root.dispatchEvent(new CustomEvent('mobile-layer-change',{detail:index}));
+        number.textContent=String(index+1).padStart(2,'0')+' / '+String(count).padStart(2,'0');
+        scrub.value=String(index);
+      }
+      const en=document.documentElement.dataset.lang==='en', label=$('em',tabs[index]);
+      scrub.setAttribute('aria-label',en?'Robot assembly progress':'机器人装配进度');
+      scrub.setAttribute('aria-valuetext',`${index+1} / ${count} · ${label.dataset[en?'en':'zh']||label.textContent}`);
+      scrub.style.setProperty('--assembly-progress',`${index/(count-1)*100}%`);
+    }
+    function schedule(){if(!frame&&mq.matches)frame=requestAnimationFrame(paint);}
+    scrub.addEventListener('input',()=>{
+      const {start,travel}=geometry(), index=Number(scrub.value);
+      // Move the document to this layer's midpoint, keeping scroll and drag in sync.
+      window.scrollTo({top:start+travel*(index+.5)/count,behavior:'instant'});paint();
+    });
+    window.addEventListener('scroll',schedule,{passive:true});
+    window.addEventListener('resize',schedule,{passive:true});
+    new ResizeObserver(schedule).observe(inner);
+    new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});
+    mq.addEventListener('change',()=>{active=-1;schedule();});
+    paint();
+  }
+  assemblyStory();
   // Compact, touch-driven showrooms. Controls are additive and mobile-only.
   function rail(selector) {
     const track=$(selector); if(!track) return;

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/main.css?v=20260929-mobile1" />
   <link rel="stylesheet" href="assets/css/products.css?v=20260901-specs1" />
   <link rel="stylesheet" href="assets/css/adaptive.css?v=20260901-footer6" />
-  <link rel="stylesheet" href="mobile/mobile.css?v=20260929-mobile2" media="(max-width: 768px)" />
+  <link rel="stylesheet" href="mobile/mobile.css?v=20260929-mobile3" media="(max-width: 768px)" />
 </head>
 <body>
 
@@ -598,6 +598,7 @@
     if (!n) return;
 
     const DURATION = 860;
+    const mobileLayers = window.matchMedia('(max-width:768px)');
     const AUTOPLAY_MS = 2800;
     const WHEEL_STEP = 48;
     let active = Math.max(0, imgs.findIndex(img => img.classList.contains('is-active')));
@@ -720,7 +721,7 @@
     }
 
     function startAutoplay() {
-      if (userLocked || autoplayTimer || !inView) return;
+      if (mobileLayers.matches || userLocked || autoplayTimer || !inView) return;
       autoplayTimer = window.setInterval(() => {
         if (!inView || userLocked || busy) return;
         if (active >= n - 1) goTo(0, { dir: 'forward' });
@@ -754,6 +755,7 @@
     }
 
     root.addEventListener('keydown', (e) => {
+      if (mobileLayers.matches) return;
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         e.preventDefault();
         stepBy(1, true);
@@ -775,6 +777,22 @@
       io.observe(root);
     }
 
+    // The mobile sticky story is driven directly by natural document scroll.
+    root.addEventListener('mobile-layer-change', (event) => {
+      if (!mobileLayers.matches || !Number.isInteger(event.detail)) return;
+      stopAutoplay();
+      window.clearTimeout(settleTimer);
+      pending = null;
+      settle(Math.max(0, Math.min(n - 1, event.detail)));
+    });
+    mobileLayers.addEventListener('change', () => {
+      if (mobileLayers.matches) {
+        stopAutoplay();
+        window.clearTimeout(settleTimer);
+        pending = null;
+        settle(active);
+      } else startAutoplay();
+    });
     paintChrome(active);
   })();
 
@@ -899,6 +917,6 @@
   })();
 </script>
 <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/adaptive.js?v=20260929-mobile2" defer></script>
+  <script src="assets/js/adaptive.js?v=20260929-mobile3" defer></script>
 </body>
 </html>

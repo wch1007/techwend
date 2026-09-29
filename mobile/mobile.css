@@ -467,13 +467,13 @@
  .value-func-icon h3,.value-func-icon strong,.value-eco-node strong { font-size:13px; line-height:1.5; }
  .value-func-icon p,.value-eco-node p { font-size:11px; line-height:1.6; margin-top:5px; }
  .value-eco-node__en { display:block; font-size:9px; letter-spacing:.05em; margin-bottom:8px; }
- html body #value-eco { background:radial-gradient(ellipse at 0 40%,#253d53,transparent 65%),#10131e; color:#f3f5fa; }
- #value-eco .value-panel__title,#value-eco .value-panel__headline { color:#fff; }
- #value-eco .value-panel__lead { color:#b4bfce; }
- #value-eco .value-eco-node { background:#ffffff07; border-color:#ffffff20; }
- #value-eco .value-eco-node strong { color:#edf0f7; }
- #value-eco .value-eco-node p { color:#9eafc2; }
- #value-eco .value-eco-node__en { color:#e791a5; }
+ html body #value-eco { background:#fff; color:#1c1c22; }
+ #value-eco .value-panel__title,#value-eco .value-panel__headline { color:#1c1c22; }
+ #value-eco .value-panel__lead { color:#686872; }
+ #value-eco .value-eco-node { background:#fff; border-color:#e9e9ed; }
+ #value-eco .value-eco-node strong { color:#25242c; }
+ #value-eco .value-eco-node p { color:#707079; }
+ #value-eco .value-eco-node__en { color:#ce2546; }
  .m-swipe-hint { margin:0 0 12px; font-size:10px; }
  .m-gallery { padding-bottom:0; }
  .m-gallery-card { flex-basis:88%; }
@@ -530,6 +530,27 @@
  .pr-layers__tab { padding:8px 3px; min-height:52px; border-radius:12px; }
  .pr-layers__tab em { font-size:10px; line-height:1.4; }
  .pr-layers__caption { font-size:13px; }
+ /* Native page scrolling drives the assembly; no wheel/touch interception. */
+ html body #layers.m-scroll-layers { display:block; height:calc(100svh + 760px)!important; padding:24px 18px 36px; }
+ #layers.m-scroll-layers .pr-layers__inner { position:sticky; top:80px; height:calc(100svh - 104px); min-height:390px; max-height:780px; gap:12px; }
+ #layers.m-scroll-layers .pr-layers__head { flex:0 0 auto; }
+ #layers.m-scroll-layers .pr-layers__stage { flex:1 1 auto; height:auto; min-height:190px; }
+ #layers.m-scroll-layers .pr-layers__rail { display:none!important; }
+ #layers.m-scroll-layers .pr-layers__img { animation:none!important; transition:opacity .24s ease; filter:none; opacity:0; visibility:visible; }
+ #layers.m-scroll-layers .pr-layers__img.is-active { opacity:1; z-index:2; }
+ #layers.m-scroll-layers .pr-layers__frame .pr-layers__img { object-fit:cover!important; height:min(86%,calc((100vw - 36px)*1.16)); top:50%; bottom:auto; transform:translateY(-50%)!important; }
+ #layers.m-scroll-layers .pr-layers__caption { z-index:4; bottom:14px; padding:8px 12px; border-radius:12px; background:#ffffffdb; backdrop-filter:blur(12px); }
+ .m-layer-controls { flex:0 0 auto; padding:0 4px; }
+ .m-layer-status { display:flex; justify-content:space-between; align-items:center; gap:12px; color:#767680; font-size:11px; }
+ .m-layer-status strong { color:#ef3154; font-variant-numeric:tabular-nums; letter-spacing:.1em; }
+ .m-layer-scrub { appearance:none; -webkit-appearance:none; display:block; width:100%; height:44px; margin:0; background:transparent; cursor:ew-resize; touch-action:pan-y; }
+ .m-layer-scrub::-webkit-slider-runnable-track { height:3px; border-radius:3px; background:linear-gradient(90deg,#f6314b var(--assembly-progress,0%),#dbdde3 var(--assembly-progress,0%)); }
+ .m-layer-scrub::-moz-range-track { height:3px; border-radius:3px; background:#dbdde3; }
+ .m-layer-scrub::-moz-range-progress { height:3px; background:#f6314b; }
+ .m-layer-scrub::-webkit-slider-thumb { appearance:none; -webkit-appearance:none; width:18px; height:18px; margin-top:-7.5px; border-radius:50%; background:#f6314b; border:4px solid #fff; box-shadow:0 0 0 1px #f6314b55,0 2px 8px #f6314b25; }
+ .m-layer-scrub::-moz-range-thumb { width:12px; height:12px; border:3px solid #fff; border-radius:50%; background:#f6314b; box-shadow:0 0 0 1px #f6314b55; }
+ .m-layer-scrub:focus-visible { outline:2px solid #f6314b; outline-offset:2px; border-radius:8px; }
+ .m-layer-exit { display:block; width:max-content; margin-left:auto; min-height:32px; padding:6px 0; font-size:11px; color:#767680; }
  .mobile-only.m-scenes { margin-top:20px; }
  .m-scene { flex:0 0 92%; min-width:0; scroll-snap-align:start; }
  .m-scene img { aspect-ratio:4/3; object-fit:cover; object-position:center; }
