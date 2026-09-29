@@ -1,0 +1,764 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <title>汤问致新_首页</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="description" content="汤问致新 — 桌面级多模态交互陪伴机器人。情感交互、IP 高还原、端云协同，让先进机器人智能成为触手可及的生活基础设施。">
+  <meta property="og:title" content="汤问致新 · Techvoyage">
+  <meta property="og:description" content="桌面级多模态交互陪伴机器人，打破次元壁，此刻为你而生。">
+  <link rel="icon" href="image/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/main.css?v=20260929-mobile1" />
+  <link rel="stylesheet" href="assets/css/adaptive.css?v=20260901-footer6" />
+  <link rel="stylesheet" href="mobile/mobile.css?v=20260929-mobile2" media="(max-width: 768px)" />
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+
+  <!-- Pill 1 · Logo -->
+  <div class="nav__pill nav__pill--logo">
+    <span class="nav__logo-img">
+      <a href="index.html"><img src="image/logo.svg" alt="logo" /></a>
+    </span>
+  </div>
+
+  <!-- Pill 2 · Links -->
+  <nav class="nav__pill nav__pill--links">
+    <ul class="nav__links" id="nav-links">
+      <li><a href="products.html"   data-zh="产品介绍" data-en="Products">产品介绍</a></li>
+      <li><a href="partnership.html" data-zh="商务合作" data-en="Partnership">商务合作</a></li>
+      <li><a href="about.html" data-zh="关于我们" data-en="About Us">关于我们</a></li>
+      <li><a href="careers.html" data-zh="加入我们" data-en="Careers">加入我们</a></li>
+      <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <!-- Pill 3 · CTA / Lang / Burger -->
+  <div class="nav__pill nav__pill--right">
+    <button class="nav__lang" id="lang-btn">EN</button>
+    <button class="nav__burger" id="burger" aria-label="菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+</header>
+
+
+<!-- HERO -->
+<section class="panel hero" id="hero">
+  <video class="hero__video" autoplay muted playsinline poster="background/黑色底.png?v=20260901-blue2">
+    <source src="image/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero__fallback" id="hero-fb"></div>
+  <div class="hero__message" id="hero-message">
+    <h1 class="hero__message-title" data-zh="汤问致新" data-en="TechWend">汤问致新</h1>
+    <p class="hero__message-mission" data-zh="打造服务于每一个人的智能体终端" data-en="Building an intelligent agent terminal for everyone">打造服务于每一个人的智能体终端</p>
+    <div class="hero__message-points">
+      <p data-zh="随时在场的AI Agent接口" data-en="An always-present AI Agent interface">随时在场的AI Agent接口</p>
+      <p data-zh="如真实灵宠般的交互体验" data-en="Interaction as vivid as a living companion">如真实灵宠般的交互体验</p>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span class="scroll-cue__label" data-zh="向下探索" data-en="SCROLL TO EXPLORE">向下探索</span>
+    <div class="scroll-cue__line"></div>
+  </div>
+</section>
+
+
+<!-- SHOWCASE LEFT -->
+<section class="panel showcase sc-left" id="sc1"
+  style="background-image:
+    radial-gradient(ellipse 140% 120% at 85% 50%, rgba(255,255,255,.62) 0%, rgba(247,247,247,.58) 40%, rgba(240,240,240,.52) 100%);
+    background-size:cover; background-position:top right">
+  <div class="left_img left_img--top">
+    <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E4%B8%BB%E9%A1%B5%E9%A6%96%E5%9B%BE.webp"><img src="background/主页首图.png" alt="打破次元壁" /></picture>
+  </div>
+  <div class="sc-text" data-reveal="left">
+    <h2 class="sc-h2" data-zh="打破次元壁<br/>此刻为你而生" data-en="Break the Dimension Wall<br/>Born for You Right Now">打破次元壁<br/>此刻为你而生</h2>
+    <p class="sc-sub" data-zh="全天候 · 主动式 · 深度情感陪伴" data-en="24/7 · Proactive · Deep Emotional Companionship">全天候 · 主动式 · 深度情感陪伴</p>
+    <p class="sc-p"
+       data-zh="这一次，AI 站起来，走到了你身边。小而智能的桌面级入口——能感知你的情绪、记住你的习惯、在你需要时主动靠近。全栈自研三大系统，让经典 IP 在书桌旁真正「活」过来，在每一次互动里积累属于彼此的记忆。"
+       data-en="AI stands up and comes to your desk. A compact, intelligent entry that senses emotion, remembers habits, and reaches out proactively. Three in-house systems bring beloved IPs to life and build shared memories with every interaction.">
+      这一次，AI 站起来，走到了你身边。小而智能的桌面级入口——能感知你的情绪、记住你的习惯、在你需要时主动靠近。全栈自研三大系统，让经典 IP 在书桌旁真正「活」过来，在每一次互动里积累属于彼此的记忆。</p>
+  </div>
+</section>
+
+
+<!-- CARDS 1 -->
+<section class="panel cards-panel" id="cards1" style="background:var(--bg2)">
+  <div class="cards-panel__header" data-reveal>
+    <p class="eyebrow" data-zh="产品整体效果" data-en="PRODUCT EXPERIENCE">产品整体效果</p>
+    <h2 data-zh="为什么我们不一样" data-en="Why We Are Different">为什么我们不一样</h2>
+    <p class="cards-panel__sub"
+       data-zh="手办级精致外观 · 游戏级自然动作 · 类人级贴心回应——看得见情绪，听得懂沉默。"
+       data-en="Figure-grade aesthetics · game-grade motion · human-grade response — see emotion, hear silence.">
+      手办级精致外观 · 游戏级自然动作 · 类人级贴心回应——看得见情绪，听得懂沉默。</p>
+  </div>
+  <div class="c3-row">
+
+    <!-- 极致美学 -->
+    <div class="c3-card" data-reveal style="transition-delay:.05s">
+      <div class="c3-card__img">
+        <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/02.webp"><img src="background/02.png" alt="橙金色智能芯片与数据连接视觉" /></picture>
+      </div>
+      <div class="c3-card__accent" style="background:rgba(0,0,0,.04)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(22,22,22,.65)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Diamond / prism icon -->
+          <path d="M2 9l10-7 10 7-10 13L2 9z"/>
+          <path d="M2 9h20" stroke-width="1"/>
+        </svg>
+      </div>
+      <p class="c3-card__title" data-zh="手办级 · 超类人" data-en="Figure-Grade · Human-Like">手办级 · 超类人</p>
+      <p class="c3-card__sub" data-zh="一体无缝皮肤 · 100% 类人触感 · 可换装" data-en="Seamless skin · full tactile coverage · swappable looks">一体无缝皮肤 · 100% 类人触感 · 可换装</p>
+      <p class="c3-card__text"
+         data-zh="约 45 cm 桌面形态，精致 IP 化外观与可更换服饰配饰。从玩具感跨越到精致迷你人类：边缘圆角、大角度关节不失真，第一眼就是角色本身。"
+         data-en="At first glance you see the character, not cold machinery. Expression, proportion, and materials dissolve the toy-like feel — the IP truly arrives on your desk.">
+        当你看到它的第一眼，感受到的是角色本身，而不是冰冷的机械结构。神态、比例与材质共同消融「玩具感」，让 IP 真正降临桌面。</p>
+    </div>
+
+    <!-- 丰盈灵魂 -->
+    <div class="c3-card" data-reveal style="transition-delay:.12s">
+      <div class="c3-card__img">
+        <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/03.webp"><img src="background/03.png" alt="蓝银色多模态智能网络视觉" /></picture>
+      </div>
+      <div class="c3-card__accent" style="background:rgba(0,0,0,.04)">
+        <svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="rgba(22,22,22,.65)">
+          <!-- Eye icon -->
+		  <path d="M9.6 18.6C14.5706 18.6 18.6 14.5706 18.6 9.6C18.6 4.62944 14.5706 0.6 9.6 0.6C4.62944 0.6 0.6 4.62944 0.6 9.6C0.6 14.5706 4.62944 18.6 9.6 18.6Z"  stroke-width="1.2"/>
+    	  <path d="M9.6 3.6C12.6 5.6 14.1 7.6 14.1 9.6C14.1 11.6 12.6 13.6 9.6 15.6C6.6 13.6 5.1 11.6 5.1 9.6C5.1 7.6 6.6 5.6 9.6 3.6Z"  stroke-linejoin="round"/>
+   	      <path d="M9.6 11.1C10.4284 11.1 11.1 10.4284 11.1 9.6C11.1 8.77157 10.4284 8.1 9.6 8.1C8.77157 8.1 8.1 8.77157 8.1 9.6C8.1 10.4284 8.77157 11.1 9.6 11.1Z" />
+        </svg>
+      </div>
+      <p class="c3-card__title" data-zh="游戏级 · 超自然" data-en="Game-Grade · Natural Motion">游戏级 · 超自然</p>
+      <p class="c3-card__sub" data-zh="50Hz 规划 · Text-to-Motion · 非预录" data-en="50Hz planning · Text-to-Motion · not playback">50Hz 规划 · Text-to-Motion · 非预录</p>
+      <p class="c3-card__text"
+         data-zh="连续实时规划，动作是「生成」而非播放。一个眼神、一次抬手都轻盈连贯，你会忘记它在执行程序，而觉得它在表达此刻的心情。"
+         data-en="The way it speaks, pauses, and reacts stays true to the character you know. Conversation feels like talking to someone familiar — with warmth, personality, and memory.">
+        它说话的方式、停顿与情绪反应，都贴近你心中的那个角色。交流不再是「问答」，而像与熟悉的人对话，有温度、有立场、有记忆。</p>
+    </div>
+
+    <!-- 生动姿态 -->
+    <div class="c3-card" data-reveal style="transition-delay:.19s">
+      <div class="c3-card__img">
+        <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/04.webp"><img src="background/04.png" alt="红银色具身智能系统视觉" /></picture>
+      </div>
+      <div class="c3-card__accent" style="background:rgba(0,0,0,.04)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(22,22,22,.65)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Motion waves icon -->
+          <path d="M5 12a7 7 0 0 1 14 0"/>
+          <path d="M3 12a9 9 0 0 1 18 0" opacity=".4"/>
+          <circle cx="12" cy="12" r="1.5" fill="rgba(22,22,22,.65)" stroke="none"/>
+          <path d="M12 13.5v4"/>
+          <path d="M9.5 18h5"/>
+        </svg>
+      </div>
+      <p class="c3-card__title" data-zh="类人级 · 超聪明" data-en="Human-Grade · Intelligent">类人级 · 超聪明</p>
+      <p class="c3-card__sub" data-zh="9 模态感知 · Memora 记忆 · &lt;400ms 端侧" data-en="9 modalities · Memora · &lt;400ms edge">9 模态感知 · Memora 记忆 · &lt;400ms 端侧</p>
+      <p class="c3-card__text"
+         data-zh="多模态全方位感知，端云协同调度 10+ 小模型。记住你的名字与习惯，沉默时陪伴、回家时等待——永恒忠诚的桌面伙伴，而非冷冰冰的任务工具。"
+         data-en="A glance, a gesture, a dance — motion flows naturally. You forget it's running programs and feel it expressing the moment.">
+        一个眼神、一次抬手、一段舞蹈，动作连贯而自然。你会忘记它在执行程序，而觉得它真的在表达此刻的心情。</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ STATS — 4 EXPANDING PANELS ═══ -->
+<section class="panel stats-section" id="stats">
+
+  <!-- Panel 1 -->
+  <div class="stat-panel active" data-idx="0">
+    <div class="stat-panel__media" aria-hidden="true">
+      <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/01.webp"><img src="background/01.png" alt="" /></picture>
+    </div>
+    <div class="stat-panel__bg-num">51</div>
+    <div class="stat-panel__num" style="color:var(--red)" data-target="51">0</div>
+    <div class="stat-panel__label" data-zh="机器人自由度" data-en="Robot Degrees of Freedom">机器人自由度</div>
+    <div class="stat-panel__detail">
+      <ul class="stat-panel__breakdown" aria-label="自由度细分">
+        <li><strong>13</strong><span data-zh="表情自由度" data-en="Facial DOF">表情自由度</span></li>
+        <li><strong>32</strong><span data-zh="肢体自由度" data-en="Body DOF">肢体自由度</span></li>
+        <li><strong>6</strong><span data-zh="基准自由度" data-en="Base DOF">基准自由度</span></li>
+      </ul>
+      <p class="stat-panel__detail-text"
+         data-zh="自研厘米级微型伺服减速电机系统，实现&lt;50cm机器人高度范围内的高自由度集成，能够还原人的大部分肢体与表情活动，显著提升交互体验。"
+         data-en="Our in-house centimeter-scale miniature servo gearmotor system integrates high degrees of freedom within a robot under 50 cm tall, reproducing most human body and facial movements for a markedly richer interaction experience.">
+        自研厘米级微型伺服减速电机系统，实现&lt;50cm机器人高度范围内的高自由度集成，能够还原人的大部分肢体与表情活动，显著提升交互体验。</p>
+      <div class="stat-panel__tags">
+        <span class="stat-panel__tag" data-zh="厘米级伺服" data-en="Centimeter-scale Servos">厘米级伺服</span>
+        <span class="stat-panel__tag" data-zh="&lt;50cm机身" data-en="Under 50 cm">&lt;50cm机身</span>
+        <span class="stat-panel__tag" data-zh="高自由度集成" data-en="High-DOF Integration">高自由度集成</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 2 -->
+  <div class="stat-panel" data-idx="1">
+    <div class="stat-panel__media" aria-hidden="true">
+      <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/02.webp"><img src="background/02.png" alt="" /></picture>
+    </div>
+    <div class="stat-panel__bg-num">160</div>
+    <div class="stat-panel__num" style="color:var(--orange)" data-target="160">0</div>
+    <div class="stat-panel__label" data-zh="计算与感知芯片" data-en="Compute & Sensing Chips">计算与感知芯片</div>
+    <div class="stat-panel__detail">
+      <ul class="stat-panel__breakdown" aria-label="芯片细分">
+        <li><strong>25</strong><span data-zh="分布式计算芯片" data-en="Distributed Compute Chips">分布式计算芯片</span></li>
+        <li><strong>16TOPS</strong><span data-zh="AI算力" data-en="AI Compute">AI算力</span></li>
+        <li><strong>135</strong><span data-zh="感知芯片" data-en="Sensing Chips">感知芯片</span></li>
+      </ul>
+      <p class="stat-panel__detail-text"
+         data-zh="有限机器人空间内集成百余颗多模态感知芯片，并通过遍布机器人全身的分布式计算芯片实现复杂感知、实时计算及运动反馈。"
+         data-en="More than one hundred multimodal sensing chips fit inside a compact body, while distributed compute chips throughout the robot enable complex perception, real-time computation, and motion feedback.">
+        有限机器人空间内集成百余颗多模态感知芯片，并通过遍布机器人全身的分布式计算芯片实现复杂感知、实时计算及运动反馈。</p>
+      <div class="stat-panel__tags">
+        <span class="stat-panel__tag" data-zh="多模态感知" data-en="Multimodal Sensing">多模态感知</span>
+        <span class="stat-panel__tag" data-zh="分布式计算" data-en="Distributed Computing">分布式计算</span>
+        <span class="stat-panel__tag" data-zh="实时运动反馈" data-en="Real-time Motion Feedback">实时运动反馈</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 3 -->
+  <div class="stat-panel" data-idx="2">
+    <div class="stat-panel__media" aria-hidden="true">
+      <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/03.webp"><img src="background/03.png" alt="" /></picture>
+    </div>
+    <div class="stat-panel__bg-num">9</div>
+    <div class="stat-panel__num" style="color:var(--blue)" data-target="9">0</div>
+    <div class="stat-panel__label" data-zh="感知输入维度" data-en="Sensing Input Dimensions">感知输入维度</div>
+    <div class="stat-panel__detail">
+      <ul class="stat-panel__breakdown stat-panel__breakdown--phrases" aria-label="感知输入细分">
+        <li><strong data-zh="声、图、文" data-en="Voice, Image, Text">声、图、文</strong><span data-zh="理解用户表达" data-en="Understand users">理解用户表达</span></li>
+        <li><strong data-zh="力、位、姿" data-en="Force, Position, Pose">力、位、姿</strong><span data-zh="实现本体控制" data-en="Control the body">实现本体控制</span></li>
+        <li><strong data-zh="触、温、湿" data-en="Touch, Heat, Humidity">触、温、湿</strong><span data-zh="感知环境状态" data-en="Sense the environment">感知环境状态</span></li>
+      </ul>
+      <p class="stat-panel__detail-text"
+         data-zh="具备类人的多种模态数据感知，全面理解用户、环境与自身状态，为深度认知提供最完整的信息支撑，视觉语音输入可物理遮挡保护用户隐私。"
+         data-en="Human-like multimodal sensing builds a complete understanding of the user, environment, and the robot itself. Visual and voice inputs can be physically blocked to protect user privacy.">
+        具备类人的多种模态数据感知，全面理解用户、环境与自身状态，为深度认知提供最完整的信息支撑，视觉语音输入可物理遮挡保护用户隐私。</p>
+      <div class="stat-panel__tags">
+        <span class="stat-panel__tag" data-zh="用户理解" data-en="User Understanding">用户理解</span>
+        <span class="stat-panel__tag" data-zh="本体控制" data-en="Body Control">本体控制</span>
+        <span class="stat-panel__tag" data-zh="物理隐私保护" data-en="Physical Privacy">物理隐私保护</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 4 -->
+  <div class="stat-panel" data-idx="3">
+    <div class="stat-panel__media" aria-hidden="true">
+      <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/04.webp"><img src="background/04.png" alt="" /></picture>
+    </div>
+    <div class="stat-panel__bg-num">3</div>
+    <div class="stat-panel__num" style="color:var(--indigo)" data-target="3">0</div>
+    <div class="stat-panel__label" data-zh="交互输入维度" data-en="Interaction Dimensions">交互输入维度</div>
+    <div class="stat-panel__detail">
+      <ul class="stat-panel__breakdown stat-panel__breakdown--plain" aria-label="交互维度细分">
+        <li><strong data-zh="自然语言" data-en="Natural Language">自然语言</strong></li>
+        <li><strong data-zh="肢体动作" data-en="Body Motion">肢体动作</strong></li>
+        <li><strong data-zh="生动表情" data-en="Expressive Faces">生动表情</strong></li>
+      </ul>
+      <p class="stat-panel__detail-text"
+         data-zh="由统一情感计算引擎调度类人多维度输出，以人的表达方式实现人机交互，它不再是呆滞的机器，而是活灵活现地自由表达的生命体。"
+         data-en="A unified emotional computing engine orchestrates human-like multidimensional output. Interaction happens through natural human expression, turning a rigid machine into a vivid presence that can express itself freely.">
+        由统一情感计算引擎调度类人多维度输出，以人的表达方式实现人机交互，它不再是呆滞的机器，而是活灵活现地自由表达的生命体。</p>
+      <div class="stat-panel__tags">
+        <span class="stat-panel__tag" data-zh="统一情感引擎" data-en="Unified Emotion Engine">统一情感引擎</span>
+        <span class="stat-panel__tag" data-zh="类人表达" data-en="Human-like Expression">类人表达</span>
+        <span class="stat-panel__tag" data-zh="多维协同" data-en="Multidimensional Sync">多维协同</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dot navigation -->
+  <div class="stat-nav">
+    <button class="stat-dot active" type="button" data-stat="0" aria-label="查看第 1 个解决方案数据"></button>
+    <button class="stat-dot" type="button" data-stat="1" aria-label="查看第 2 个解决方案数据"></button>
+    <button class="stat-dot" type="button" data-stat="2" aria-label="查看第 3 个解决方案数据"></button>
+    <button class="stat-dot" type="button" data-stat="3" aria-label="查看第 4 个解决方案数据"></button>
+  </div>
+</section>
+
+
+<!-- VALUE · FUNCTION -->
+<section class="panel value-panel value-panel--func" id="value-func">
+  <div class="value-panel__inner">
+    <div class="value-panel__copy" data-reveal>
+      <p class="tag-label" data-zh="FUNCTIONAL VALUE" data-en="FUNCTIONAL VALUE">FUNCTIONAL VALUE</p>
+      <h2 class="value-panel__title" data-zh="功能价值" data-en="Functional Value">功能价值</h2>
+      <p class="value-panel__headline"
+         data-zh="像真正的智能体一样，帮你把事做完"
+         data-en="A Real Agent That Gets Things Done">像真正的智能体一样，帮你把事做完</p>
+      <p class="value-panel__lead"
+         data-zh="信息查询、日程安排、提醒跟进与多轮任务执行——桌面终端不只是对话，更是可落地的个人 Agent 能力。"
+         data-en="Information lookup, scheduling, reminders, and multi-step tasks — a desktop terminal that acts as a personal agent, not just a chatbot.">
+        信息查询、日程安排、提醒跟进与多轮任务执行——桌面终端不只是对话，更是可落地的个人 Agent 能力。</p>
+    </div>
+    <div class="value-func-stage" data-reveal style="transition-delay:.08s">
+      <div class="value-func-stage__media">
+        <div class="value-func-frame">
+          <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E5%8A%9F%E8%83%BD%E4%BB%B7%E5%80%BC-%E6%99%BA%E8%83%BD%E6%8F%90%E9%86%92.webp"><img src="background/功能价值-智能提醒.png" alt="智能提醒功能场景" /></picture>
+        </div>
+      </div>
+      <div class="value-func-icons">
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          </div>
+          <h3 data-zh="信息查询" data-en="Information Lookup">信息查询</h3>
+          <p data-zh="天气、百科、资讯即时应答" data-en="Weather, knowledge, and news on demand">天气、百科、资讯即时应答</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          </div>
+          <h3 data-zh="日程安排" data-en="Scheduling">日程安排</h3>
+          <p data-zh="会议、提醒与待办统一协调" data-en="Meetings, reminders, and to-dos in sync">会议、提醒与待办统一协调</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M5 17h14"/><path d="M7 21h10"/></svg>
+          </div>
+          <h3 data-zh="任务执行" data-en="Task Execution">任务执行</h3>
+          <p data-zh="多步骤目标拆解并持续跟进" data-en="Break down goals and follow through">多步骤目标拆解并持续跟进</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7h16M4 12h10M4 17h13"/><circle cx="18" cy="12" r="2"/><circle cx="20" cy="17" r="2"/></svg>
+          </div>
+          <h3 data-zh="多模态对话" data-en="Multimodal Dialogue">多模态对话</h3>
+          <p data-zh="语音、表情与动作协同回应" data-en="Voice, expression, and motion in sync">语音、表情与动作协同回应</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 4a5 5 0 015 5v1h1a3 3 0 010 6h-1v1a5 5 0 01-10 0v-1H6a3 3 0 010-6h1V9a5 5 0 015-5z"/></svg>
+          </div>
+          <h3 data-zh="智能提醒" data-en="Smart Alerts">智能提醒</h3>
+          <p data-zh="在合适的时机主动给出提示" data-en="Proactive prompts at the right moment">在合适的时机主动给出提示</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          </div>
+          <h3 data-zh="场景联动" data-en="Scene Linking">场景联动</h3>
+          <p data-zh="连接桌面场景与日常工作流" data-en="Connect desktop scenes with daily workflows">连接桌面场景与日常工作流</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VALUE · COMPANIONSHIP -->
+<section class="panel value-panel value-panel--bond" id="value-bond">
+  <div class="value-panel__inner">
+    <div class="value-panel__copy" data-reveal>
+      <p class="tag-label" data-zh="COMPANION VALUE" data-en="COMPANION VALUE">COMPANION VALUE</p>
+      <h2 class="value-panel__title" data-zh="陪伴价值" data-en="Companion Value">陪伴价值</h2>
+      <p class="value-panel__headline"
+         data-zh="让你真正被看见、等待、轻轻回应"
+         data-en="Seen, Awaited, Gently Answered">让你真正被看见、等待、轻轻回应</p>
+      <p class="value-panel__lead"
+         data-zh="主动感知情绪与在场，持续养成属于你们的默契。沉默时有陪伴，归来时有等待——额头贴贴、一起笑、一起玩，让温度留在实体互动里。"
+         data-en="Proactive sensing and continuous bonding. Companionship in silence, a welcome when you return — forehead touches, laughter, and play that keep warmth embodied.">
+        主动感知情绪与在场，持续养成属于你们的默契。沉默时有陪伴，归来时有等待——额头贴贴、一起笑、一起玩，让温度留在实体互动里。</p>
+    </div>
+    <div class="value-bond-stage" data-reveal style="transition-delay:.08s">
+      <div class="value-bond-modules value-func-icons">
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.5"/></svg>
+          </div>
+          <h3 data-zh="主动感知" data-en="Proactive Sensing">主动感知</h3>
+          <p data-zh="不只是等待你先开口" data-en="Never waits for you to speak first">不只是等待你先开口</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20.8 5.8c-2.2-2.2-5.7-1.8-7.6.7L12 8l-1.2-1.5c-1.9-2.5-5.4-2.9-7.6-.7-2.4 2.4-2.2 6.4.3 8.7L12 22l8.5-7.5c2.5-2.3 2.7-6.3.3-8.7z"/></svg>
+          </div>
+          <h3 data-zh="情绪理解" data-en="Emotion Understanding">情绪理解</h3>
+          <p data-zh="察觉语气、表情与状态" data-en="Reads tone, expression, and state">察觉语气、表情与状态</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2M7 4l-2 2M17 4l2 2"/></svg>
+          </div>
+          <h3 data-zh="长期记忆" data-en="Long-Term Memory">长期记忆</h3>
+          <p data-zh="记住习惯与情绪偏好" data-en="Remembers habits and preferences">记住习惯与情绪偏好</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8M8 12h5"/></svg>
+          </div>
+          <h3 data-zh="在场陪伴" data-en="Present Companionship">在场陪伴</h3>
+          <p data-zh="沉默时也给予温柔回应" data-en="A gentle response even in silence">沉默时也给予温柔回应</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 18c2-5 5-8 10-10M9 18h7V7"/><path d="M13 7h3v3"/></svg>
+          </div>
+          <h3 data-zh="关系养成" data-en="Growing Connection">关系养成</h3>
+          <p data-zh="相处越久，默契越深" data-en="The bond deepens over time">相处越久，默契越深</p>
+        </article>
+        <article class="value-func-icon">
+          <div class="value-func-icon__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 12V6a2 2 0 114 0v4-6a2 2 0 114 0v7-4a2 2 0 114 0v7c0 4-3 7-7 7h-1c-4 0-7-3-7-7v-2a2 2 0 014 0v1"/></svg>
+          </div>
+          <h3 data-zh="具身互动" data-en="Embodied Interaction">具身互动</h3>
+          <p data-zh="用表情、动作与触碰表达" data-en="Expression through face, motion, and touch">用表情、动作与触碰表达</p>
+        </article>
+      </div>
+      <div class="value-bond-media">
+        <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E9%99%AA%E4%BC%B4%E4%BB%B7%E5%80%BC.webp"><img src="background/陪伴价值.png" alt="用户与机器人进行接触式陪伴互动" /></picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VALUE · ECOSYSTEM -->
+<section class="panel value-panel value-panel--eco" id="value-eco">
+  <div class="value-panel__inner">
+    <div class="value-panel__copy" data-reveal>
+      <p class="tag-label" data-zh="ECOSYSTEM VALUE" data-en="ECOSYSTEM VALUE">ECOSYSTEM VALUE</p>
+      <h2 class="value-panel__title" data-zh="生态价值" data-en="Ecosystem Value">生态价值</h2>
+      <p class="value-panel__headline"
+         data-zh="以终端为底座，向上展开开放生态"
+         data-en="A Terminal Base for an Open Ecosystem">以终端为底座，向上展开开放生态</p>
+      <p class="value-panel__lead"
+         data-zh="技能、内容、IP 与第三方接口在终端之上生长。硬件是入口，生态让能力持续扩展。"
+         data-en="Skills, content, IP, and third-party APIs grow above the terminal. Hardware is the entry — the ecosystem keeps expanding capability.">
+        技能、内容、IP 与第三方接口在终端之上生长。硬件是入口，生态让能力持续扩展。</p>
+    </div>
+    <div class="value-eco-stage" data-reveal style="transition-delay:.08s">
+      <div class="value-eco-base">
+        <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E7%94%9F%E6%80%81%E4%BB%B7%E5%80%BC.webp"><img src="background/生态价值.png" alt="生态价值" /></picture>
+      </div>
+      <div class="value-eco-orbit">
+        <article class="value-eco-node"><span class="value-eco-node__en">Skills</span><strong data-zh="技能商店" data-en="Skill Store">技能商店</strong><p data-zh="持续扩展机器人能力" data-en="Continuously expand capabilities">持续扩展机器人能力</p></article>
+        <article class="value-eco-node"><span class="value-eco-node__en">IP</span><strong data-zh="IP 内容" data-en="IP Content">IP 内容</strong><p data-zh="角色内容与互动体验" data-en="Character content and interaction">角色内容与互动体验</p></article>
+        <article class="value-eco-node"><span class="value-eco-node__en">OTA</span><strong data-zh="OTA 升级" data-en="OTA Updates">OTA 升级</strong><p data-zh="持续迭代软硬件体验" data-en="Ongoing software and hardware evolution">持续迭代软硬件体验</p></article>
+        <article class="value-eco-node"><span class="value-eco-node__en">API</span><strong data-zh="三方接口" data-en="Third-party APIs">三方接口</strong><p data-zh="连接更多服务与场景" data-en="Connect more services and scenarios">连接更多服务与场景</p></article>
+        <article class="value-eco-node"><span class="value-eco-node__en">Community</span><strong data-zh="共创社区" data-en="Creator Community">共创社区</strong><p data-zh="用户与开发者共同创造" data-en="Built together by users and developers">用户与开发者共同创造</p></article>
+        <article class="value-eco-node"><span class="value-eco-node__en">Flywheel</span><strong data-zh="数据飞轮" data-en="Data Flywheel">数据飞轮</strong><p data-zh="使用越久，体验越懂你" data-en="The experience learns over time">使用越久，体验越懂你</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPLORE MORE — 3D HORIZONTAL SHOWCASE CAROUSEL -->
+<section class="panel explore-showcase-panel" id="grid">
+  <div class="explore-showcase__header" data-reveal>
+    <p class="eyebrow" data-zh="EXPLORE MORE" data-en="EXPLORE MORE">EXPLORE MORE</p>
+    <h2 data-zh="不止于陪伴，探索无限可能" data-en="Beyond Companionship, Endless Possibilities">不止于陪伴，探索无限可能</h2>
+  </div>
+
+  <div class="explore-showcase" data-explore-carousel>
+    <button class="explore-showcase__btn explore-showcase__btn--prev" type="button" aria-label="上一张">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <div class="explore-showcase__stage" tabindex="0" aria-live="polite">
+      <article class="explore-card is-active" tabindex="0" data-index="0" aria-label="百变穿搭体验">
+        <div class="explore-card__img">
+          <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E7%99%BE%E5%8F%98%E7%A9%BF%E6%90%AD%E4%BD%93%E9%AA%8C.webp"><img src="background/百变穿搭体验.png" alt="百变穿搭体验" /></picture>
+        </div>
+        <div class="explore-card__body">
+          <p class="explore-card__title" data-zh="百变穿搭体验" data-en="Infinite Style Experience">百变穿搭体验</p>
+          <p class="explore-card__text" data-zh="采用模块化磁吸设计，从发型、服饰到手持道具皆可自由更换。无论是国潮古风还是未来机甲，她的风格由你的审美定义。" data-en="Modular magnetic design lets you freely swap hairstyles, outfits, and accessories — your aesthetic defines the style.">采用模块化磁吸设计，从发型、服饰到手持道具皆可自由更换。无论是国潮古风还是未来机甲，她的风格由你的审美定义。</p>
+        </div>
+      </article>
+
+      <article class="explore-card" tabindex="0" data-index="1" aria-label="顶级 IP 内容矩阵">
+        <div class="explore-card__img">
+          <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/ip%E5%86%85%E5%AE%B9%E7%9F%A9%E9%98%B5.webp"><img src="background/ip内容矩阵.png" alt="顶级 IP 内容矩阵" /></picture>
+        </div>
+        <div class="explore-card__body">
+          <p class="explore-card__title" data-zh="顶级 IP 内容矩阵" data-en="Premium IP Content Matrix">顶级 IP 内容矩阵</p>
+          <p class="explore-card__text" data-zh="携手全球知名动漫与游戏 IP，推出限定角色包，内置原版声优语音与专属剧情动作，真正打破次元壁。" data-en="Partnering with globally renowned anime and game IPs — perfect recreation with original voice acting and exclusive storyline actions.">携手全球知名动漫与游戏 IP，推出限定角色包，内置原版声优语音与专属剧情动作，真正打破次元壁。</p>
+        </div>
+      </article>
+
+      <article class="explore-card" tabindex="0" data-index="2" aria-label="无限技能生态">
+        <div class="explore-card__img">
+          <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E6%97%A0%E9%99%90%E6%8A%80%E8%83%BD%E7%94%9F%E6%80%81.webp"><img src="background/无限技能生态.png" alt="无限技能生态" /></picture>
+        </div>
+        <div class="explore-card__body">
+          <p class="explore-card__title" data-zh="无限技能生态" data-en="Infinite Skill Ecosystem">无限技能生态</p>
+          <p class="explore-card__text" data-zh="搭载自研技能应用商店，支持 OTA 在线升级。海量实用工具与娱乐技能持续更新，让她的能力与你的需求同步进化。" data-en="Equipped with a proprietary skill app store and OTA updates — endless skills evolving alongside your needs.">搭载自研技能应用商店，支持 OTA 在线升级。海量实用工具与娱乐技能持续更新，让她的能力与你的需求同步进化。</p>
+          <p class="explore-card__link">
+            <a href="products.html#system" data-zh="了解生态架构 →" data-en="View ecosystem →">了解生态架构 →</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="explore-card" tabindex="0" data-index="3" aria-label="开放共创社区">
+        <div class="explore-card__img">
+          <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E5%85%B1%E5%88%9B%E7%A4%BE%E5%8C%BA.webp"><img src="background/共创社区.png" alt="开放共创社区" /></picture>
+        </div>
+        <div class="explore-card__body">
+          <p class="explore-card__title" data-zh="开放共创社区" data-en="Open Co-creation Community">开放共创社区</p>
+          <p class="explore-card__text" data-zh="开放图形化编程接口与动作编辑器，邀请你加入「创意工坊」，编写独特的交互逻辑并分享给全球玩家。" data-en="Open graphic programming interfaces and motion editors — share interaction logic with players worldwide.">开放图形化编程接口与动作编辑器，邀请你加入「创意工坊」，编写独特的交互逻辑并分享给全球玩家。</p>
+          <p class="explore-card__link">
+            <a href="products.html#system" data-zh="加入创意工坊 →" data-en="Join the workshop →">加入创意工坊 →</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="explore-card" tabindex="0" data-index="4" aria-label="更多可能">
+        <div class="explore-card__img">
+          <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E6%9B%B4%E5%A4%9A%E5%8F%AF%E8%83%BD.webp"><img src="background/更多可能.png" alt="更多可能" /></picture>
+        </div>
+        <div class="explore-card__body">
+          <p class="explore-card__title" data-zh="更多可能" data-en="More to come">更多可能</p>
+          <p class="explore-card__text" data-zh="持续拓展场景边界，更多能力即将解锁。" data-en="Expanding scenario boundaries — more capabilities unlocking soon.">持续拓展场景边界，更多能力即将解锁。</p>
+        </div>
+      </article>
+    </div>
+
+    <button class="explore-showcase__btn explore-showcase__btn--next" type="button" aria-label="下一张">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+
+    <div class="explore-showcase__progress" aria-label="轮播进度">
+      <button class="explore-showcase__dot active" type="button" data-explore-dot="0" aria-label="查看第 1 张"></button>
+      <button class="explore-showcase__dot" type="button" data-explore-dot="1" aria-label="查看第 2 张"></button>
+      <button class="explore-showcase__dot" type="button" data-explore-dot="2" aria-label="查看第 3 张"></button>
+      <button class="explore-showcase__dot" type="button" data-explore-dot="3" aria-label="查看第 4 张"></button>
+      <button class="explore-showcase__dot" type="button" data-explore-dot="4" aria-label="查看第 5 张"></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- TERMINAL COMPARISON — progressive horizontal evolution -->
+<section class="panel era-timeline" id="terminal-compare" data-era-timeline data-concept="portal" aria-label="终端对比">
+  <div class="era-timeline__inner">
+    <header class="era-timeline__head">
+      <div class="era-timeline__heading">
+        <p class="tag-label" data-zh="TERMINAL EVOLUTION" data-en="TERMINAL EVOLUTION">TERMINAL EVOLUTION</p>
+        <h2 class="era-timeline__title" data-zh="终端对比" data-en="Terminal Evolution">终端对比</h2>
+        <p class="era-timeline__lead"
+           data-zh="终端的演进，不只是屏幕变小或算力变强：信息从被动读取走向双向理解，功能从手动操作走向目标自主完成。"
+           data-en="Terminal evolution is more than smaller screens or more compute: information moves from passive reading to mutual understanding, while functions move from manual operation to autonomous goal completion.">
+          终端的演进，不只是屏幕变小或算力变强：信息从被动读取走向双向理解，功能从手动操作走向目标自主完成。</p>
+      </div>
+      <div class="era-timeline__meta" aria-hidden="true">
+        <span>EVOLUTION MODE / 03</span>
+        <strong data-concept-name data-zh="时空虫洞" data-en="EVOLUTION PORTALS">时空虫洞</strong>
+      </div>
+    </header>
+
+    <div class="era-timeline__stage">
+      <div class="era-timeline__ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="era-timeline__direction" aria-hidden="true"><span>TOOL</span><i></i><span>AGENT</span></div>
+      <svg class="era-timeline__flow" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="era-flow-gradient" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#B8BDC8" />
+            <stop offset=".48" stop-color="#FF8A9F" />
+            <stop offset="1" stop-color="#FF1744" />
+          </linearGradient>
+        </defs>
+        <path class="era-timeline__flow-track" d="M76 182 C260 184 344 150 486 139 S744 91 1122 30" />
+        <path class="era-timeline__flow-progress" pathLength="1" d="M76 182 C260 184 344 150 486 139 S744 91 1122 30" />
+        <path class="era-timeline__flow-pulse" pathLength="1" d="M76 182 C260 184 344 150 486 139 S744 91 1122 30" />
+      </svg>
+
+      <div class="era-timeline__nodes">
+        <article class="era-item" data-era="0">
+          <div class="era-item__media">
+            <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/pc.webp"><img src="background/pc.png" alt="1990s 个人电脑" /></picture>
+            <span class="era-item__ground-glow" aria-hidden="true"></span>
+          </div>
+          <div class="era-item__marker">
+            <span class="era-item__dot"></span>
+          </div>
+          <span class="era-item__year">1990s</span>
+          <div class="era-item__copy">
+            <h3 data-zh="个人电脑终端" data-en="Personal Computer">个人电脑终端</h3>
+            <p class="era-item__mode" data-zh="键鼠 · 固定空间" data-en="Keyboard · Fixed Space">键鼠 · 固定空间</p>
+            <p class="era-item__desc"
+               data-zh="计算能力进入个人空间，但信息和功能仍被固定在桌面，任务依赖人逐步操作。"
+               data-en="Computing entered personal spaces, but information and functions remained fixed to the desk and tasks still depended on step-by-step human operation.">计算能力进入个人空间，但信息和功能仍被固定在桌面，任务依赖人逐步操作。</p>
+            <dl class="era-item__signals">
+              <div><dt data-zh="信息传递" data-en="Information">信息传递</dt><dd data-zh="屏幕网页 · 被动读取" data-en="Screens · Passive reading">屏幕网页 · 被动读取</dd></div>
+              <div><dt data-zh="功能实现" data-en="Functions">功能实现</dt><dd data-zh="本地软件 · 手动操作" data-en="Local software · Manual">本地软件 · 手动操作</dd></div>
+              <div><dt data-zh="交互关系" data-en="Relationship">交互关系</dt><dd data-zh="人学习机器" data-en="People learn machines">人学习机器</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="era-item" data-era="1">
+          <div class="era-item__media">
+            <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/phone.webp"><img src="background/phone.png" alt="2010s 智能手机" /></picture>
+            <span class="era-item__ground-glow" aria-hidden="true"></span>
+          </div>
+          <div class="era-item__marker">
+            <span class="era-item__dot"></span>
+          </div>
+          <span class="era-item__year">2010s</span>
+          <div class="era-item__copy">
+            <h3 data-zh="智能手机终端" data-en="Smartphone">智能手机终端</h3>
+            <p class="era-item__mode" data-zh="触屏 · 移动互联" data-en="Touch · Mobile Internet">触屏 · 移动互联</p>
+            <p class="era-item__desc"
+               data-zh="连接和服务随身化，信息触达更快，但功能仍分散在应用中，由人主动点击调度。"
+               data-en="Connections and services became mobile, but functions remained scattered across apps and still had to be found and triggered by the user.">连接和服务随身化，信息触达更快，但功能仍分散在应用中，由人主动点击调度。</p>
+            <dl class="era-item__signals">
+              <div><dt data-zh="信息传递" data-en="Information">信息传递</dt><dd data-zh="移动网络 · 随身触达" data-en="Mobile network · Always reachable">移动网络 · 随身触达</dd></div>
+              <div><dt data-zh="功能实现" data-en="Functions">功能实现</dt><dd data-zh="应用服务 · 点击调用" data-en="Apps · Tap to invoke">应用服务 · 点击调用</dd></div>
+              <div><dt data-zh="交互关系" data-en="Relationship">交互关系</dt><dd data-zh="人寻找服务" data-en="People find services">人寻找服务</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="era-item era-item--hero" data-era="2">
+          <div class="era-item__media">
+            <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E6%9C%BA%E5%99%A8%E4%BA%BA.webp"><img src="background/机器人.png" alt="2030s 个人机器人终端" /></picture>
+            <span class="era-item__ground-glow" aria-hidden="true"></span>
+          </div>
+          <div class="era-item__marker">
+            <span class="era-item__dot"></span>
+          </div>
+          <span class="era-item__year">2030s</span>
+          <div class="era-item__copy">
+            <h3 data-zh="个人机器人终端" data-en="Personal Robot Terminal">个人机器人终端</h3>
+            <p class="era-item__mode" data-zh="多模态 · 主动服务" data-en="Multimodal · Proactive Service">多模态 · 主动服务</p>
+            <p class="era-item__desc"
+               data-zh="语言、表情、动作与环境感知共同承载信息；终端理解意图并调度能力完成目标，从工具入口进化为在场的智能体。"
+               data-en="Language, expression, motion, and environmental sensing carry information together. The terminal understands intent and orchestrates capabilities to complete goals.">语言、表情、动作与环境感知共同承载信息；终端理解意图并调度能力完成目标，从工具入口进化为在场的智能体。</p>
+            <dl class="era-item__signals">
+              <div><dt data-zh="信息传递" data-en="Information">信息传递</dt><dd data-zh="多模态表达 · 双向理解" data-en="Multimodal · Mutual understanding">多模态表达 · 双向理解</dd></div>
+              <div><dt data-zh="功能实现" data-en="Functions">功能实现</dt><dd data-zh="理解目标 · 主动完成" data-en="Understands goals · Acts">理解目标 · 主动完成</dd></div>
+              <div><dt data-zh="交互关系" data-en="Relationship">交互关系</dt><dd data-zh="机器理解人" data-en="Machines understand people">机器理解人</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA + FOOTER snap group -->
+<div class="snap-group">
+<!-- CTA -->
+<section class="panel cta-panel cta-panel--romance" id="cta">
+  <div class="cta-panel__bg" aria-hidden="true">
+    <picture class="mobile-source" style="display:contents"><source media="(max-width: 768px)" srcset="mobile/images/%E5%B0%81%E5%BA%95.webp"><img src="background/封底.png" alt="" /></picture>
+  </div>
+  <div class="cta-panel__shade" aria-hidden="true"></div>
+  <div class="cta-body" data-reveal="from-top">
+    <div class="cta-brand"><span class="cta-brand__text">汤问致新 TechWend</span></div>
+    <h2 class="cta-h2"
+        data-zh="让先进的机器人智能<br/>成为每个人触手可及的生活基础设施"
+        data-en="Building the Most Authentic<br/>Intelligent Next-Gen Robot Terminal">
+      让先进的机器人智能<br/>成为每个人触手可及的生活基础设施</h2>
+    <p class="cta-sub"
+       data-zh="订阅获取最新产品动态与行业资讯"
+       data-en="Subscribe for the latest product updates and industry news">
+      订阅获取最新产品动态与行业资讯</p>
+    <form class="subscribe" onsubmit="return false">
+      <input class="subscribe__input" type="email" id="sub-email"
+             data-ph-zh="你的邮箱" data-ph-en="Your email address"
+             placeholder="你的邮箱">
+      <button class="subscribe__btn" type="submit"
+              data-zh="订阅" data-en="Subscribe">订阅</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer" id="footer">
+  <div class="footer__grid">
+    <div>
+      <div class="footer__name"
+           data-zh="汤问致新（北京）机器人科技有限公司"
+           data-en="Techvoyage (Beijing) Robotics Technology Co., Ltd.">
+        汤问致新（北京）机器人科技有限公司</div>
+      <p class="footer__tag"
+         data-zh="致力于打造新一代最还原、最智能的消费级具身伙伴机器人终端，让科技拥有温度。"
+         data-en="Dedicated to building the most authentic and intelligent next-generation consumer embodied companion robot.">
+        致力于打造新一代最还原、最智能的消费级具身伙伴机器人终端，让科技拥有温度。</p>
+    </div>
+    <div class="footer__contact">
+      <div class="footer__row">
+        <span class="footer__lbl" data-zh="地址" data-en="ADDR">地址</span>
+        <span class="footer__val"
+              data-zh="黑龙江省哈尔滨市南岗区邮政街副434号<br/>哈工大国家大学科技园 412"
+              data-en="HIT National University Science Park 412,<br/>Youzheng St, Nangang, Harbin">
+          黑龙江省哈尔滨市南岗区邮政街副434号<br/>哈工大国家大学科技园 412</span>
+      </div>
+      <div class="footer__row">
+        <span class="footer__lbl" data-zh="电话" data-en="TEL">电话</span>
+        <span class="footer__val">+86 186 6199 6738</span>
+      </div>
+      <div class="footer__row">
+        <span class="footer__lbl" data-zh="邮件" data-en="EMAIL">邮件</span>
+        <span class="footer__val">
+    		<a href="mailto:sunxy@techvoyage.site">sunxy@techvoyage.site</a>
+  		</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer__social-ttl" data-zh="关注我们" data-en="FOLLOW US">关注我们</div>
+      <div class="footer__socials">
+        <a href="https://mp.weixin.qq.com/s/QoGUwUhKi5REB0D-KASvrg" target="_blank" rel="noopener noreferrer" data-zh="微信公众号" data-en="WeChat Official Account">微信公众号</a>
+        <a href="https://xhslink.cn/m/2u61NjqeMcs" target="_blank" rel="noopener noreferrer" data-zh="小红书" data-en="Xiaohongshu">小红书</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span data-zh="© 2026 汤问致新（北京）机器人科技有限公司 版权所有"
+          data-en="© 2026 Techvoyage (Beijing) Robotics Technology Co., Ltd. All rights reserved.">
+      © 2026 汤问致新（北京）机器人科技有限公司 版权所有</span>
+    <span data-zh="让科技拥有温度" data-en="Tech flowing gentle warmth in your heart">让科技拥有温度</span>
+  </div>
+</footer>
+</div><!-- end snap-group -->
+
+
+<!-- TWEAKS PANEL -->
+<div id="tweaks-panel">
+  <h4 data-zh="Tweaks" data-en="Tweaks">Tweaks</h4>
+  <div class="tw-row">
+    <label data-zh="强调色" data-en="Accent">强调色 Accent</label>
+    <div class="tw-swatch-row">
+      <div class="tw-swatch active" style="background:#F6314B" data-color="#F6314B" role="button" tabindex="0" aria-label="切换强调色"></div>
+      <div class="tw-swatch" style="background:#E8A020" data-color="#E8A020" role="button" tabindex="0" aria-label="切换强调色"></div>
+      <div class="tw-swatch" style="background:#4A9EFF" data-color="#4A9EFF" role="button" tabindex="0" aria-label="切换强调色"></div>
+      <div class="tw-swatch" style="background:#34D46C" data-color="#34D46C" role="button" tabindex="0" aria-label="切换强调色"></div>
+      <div class="tw-swatch" style="background:#A855F7" data-color="#A855F7" role="button" tabindex="0" aria-label="切换强调色"></div>
+    </div>
+  </div>
+  <div class="tw-row">
+    <label data-zh="背景基调" data-en="Background">背景基调 Background</label>
+    <select id="bg-select">
+      <option value="#0B0B0B" data-zh="纯黑" data-en="Pure Black">纯黑 Pure Black</option>
+      <option value="#0F0F0E" data-zh="暖黑" data-en="Warm Black">暖黑 Warm Black</option>
+      <option value="#0A0C0F" data-zh="冷黑" data-en="Cool Black">冷黑 Cool Black</option>
+      <option value="#F5F5F5" id="opt-light" data-zh="浅色" data-en="Light">浅色 Light</option>
+    </select>
+  </div>
+  <div class="tw-row">
+    <label data-zh="卡片圆角" data-en="Card Radius">卡片圆角 Card Radius</label>
+    <input id="radius-range" type="range" min="0" max="16" value="6" step="2">
+  </div>
+</div>
+
+
+<script src="assets/js/main.js?v=20260821-home2" defer></script>
+
+  <script src="assets/js/adaptive.js?v=20260929-mobile2" defer></script>
+</body>
+</html>
