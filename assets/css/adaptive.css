@@ -146,6 +146,7 @@ html { scroll-padding-top: 0 !important; }
   height: 100% !important;
   min-height: 0;
   display: grid !important;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) clamp(106px, 14vh, 142px);
 }
 .explore-showcase__stage {

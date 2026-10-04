@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN" data-lang="zh" class="contact-page">
 <head>
   <title>汤问致新_联系</title>
@@ -9,10 +9,17 @@
   <meta property="og:title" content="联系我们 · 汤问致新">
   <meta property="og:description" content="官方邮箱、电话与地址。商务合作与媒体问询 24 小时内回复。">
   <link rel="icon" href="image/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/main.css?v=20260929-mobile1" />
+  <link rel="stylesheet" href="assets/css/main.css?v=20261003-0907" />
   <link rel="stylesheet" href="assets/css/contact.css?v=20260821-type1" />
   <link rel="stylesheet" href="assets/css/adaptive.css?v=20260901-footer6" />
   <link rel="stylesheet" href="mobile/mobile.css?v=20260929-mobile3" media="(max-width: 768px)" />
+<link rel="stylesheet" href="assets/css/element-motion.css?v=20261004-elements2">
+<script>
+if ('IntersectionObserver' in window && window.CSS && CSS.supports('translate', '0 1px')) {
+  document.documentElement.classList.add('element-motion-ready');
+  setTimeout(function () { if (!window.elementMotionLoaded) document.documentElement.classList.remove('element-motion-ready'); }, 8000);
+}
+</script>
 </head>
 <body>
 
@@ -192,8 +199,10 @@
     <input id="radius-range" type="range" min="0" max="16" value="6" step="2">
   </div>
 </div>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=20261003-0907" defer></script>
 
-  <script src="assets/js/adaptive.js?v=20260929-mobile3" defer></script>
+  <script src="assets/js/adaptive.js?v=20261003-0907" defer></script>
+  <script src="assets/js/site-motion.js?v=20261004-1" defer></script>
+<script defer src="assets/js/element-motion.js?v=20261004-elements2"></script>
 </body>
 </html>

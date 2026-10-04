@@ -55,7 +55,7 @@
         <div class="footer-shell">
           <section class="footer-brand-card">
             <h2><span class="footer-brand-primary" data-zh="汤问致新" data-en="TechWend">汤问致新</span><span data-zh="（北京）机器人科技有限公司" data-en=" (Beijing) Robotics Technology Co., Ltd.">（北京）机器人科技有限公司</span></h2>
-            <p data-zh="致力于打造新一代最还原、最智能的消费级具身伙伴机器人终端，<br>让科技拥有温度。" data-en="Building authentic, intelligent next-generation consumer companion robots,<br>with warmth.">致力于打造新一代最还原、最智能的消费级具身伙伴机器人终端，<br>让科技拥有温度。</p>
+            <p data-zh="让先进的机器人智能<br>成为每个人触手可及的生活基础设施" data-en="Making advanced robotic intelligence<br>an accessible part of everyday life.">让先进的机器人智能<br>成为每个人触手可及的生活基础设施</p>
           </section>
           <section class="footer-main">
             <div class="footer-main__top">
@@ -205,7 +205,7 @@
     function load(){
       if(!mq.matches || loaded) return;
       loaded=true;
-      const s=document.createElement('script'); s.src='mobile/mobile.js?v=20260929-mobile3'; s.defer=true; document.body.appendChild(s);
+      const s=document.createElement('script'); s.src='mobile/mobile.js?v=20261003-0907'; s.defer=true; document.body.appendChild(s);
     }
     mq.addEventListener('change',load);
     load();

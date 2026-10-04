@@ -78,6 +78,7 @@
     $$('.stat-panel__num[data-target]').forEach(el=>{
       const target = parseInt(el.dataset.target,10) || 0;
       const sfx = el.dataset.suffix || '';
+      if (reduceMotion) { el.textContent = target + sfx; return; }
       let t0 = null;
       const tick = ts=>{
         if(!t0) t0 = ts;
@@ -454,56 +455,47 @@
     io.observe(root);
   })();
 
-  /* Hero: play once and hold on the final frame */
+  /* One controller for desktop and mobile: copy enters shortly before the intro ends. */
   (function initHeroVideo(){
-    const hero = $('#hero');
-    const video = hero && $('.hero__video', hero);
-    if (!hero || !video) return;
-    let copyVisible = false;
-
-    function revealCopy(){
-      if (copyVisible) return;
-      copyVisible = true;
-      hero.classList.add('is-copy-visible');
+    const hero = $('#hero'), video = hero && $('.hero__video', hero);
+    if (!video) return;
+    const controls = document.createElement('div'); controls.className = 'hero-controls';
+    const play = document.createElement('button');
+    play.type = 'button';
+    function label(el, zh, en) { el.dataset.zh=zh; el.dataset.en=en; el.textContent=document.documentElement.dataset.lang==='en'?en:zh; }
+    label(play,'播放开场','Play intro');
+    controls.append(play); hero.append(controls); play.hidden=true;
+    const COPY_LEAD_SECONDS = 1.5;
+    let finished=false, resume=false;
+    function syncCopyReveal() {
+      if(finished || !Number.isFinite(video.duration) || video.duration <= 0) return;
+      if(video.currentTime >= Math.max(0, video.duration - COPY_LEAD_SECONDS)) hero.classList.add('is-copy-visible');
     }
-
-    function playVideo(){
-      if (video.ended) return;
-      const p = video.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
+    function complete(failed=false) {
+      finished=true;video.pause();hero.classList.add('is-complete','is-copy-visible','m-video-complete');
+      play.hidden=true;
     }
-
-    video.loop = false;
-    video.removeAttribute('loop');
-    video.addEventListener('ended', () => {
-      video.pause();
-      hero.classList.add('is-complete');
-      revealCopy();
-    });
-
-    video.addEventListener('timeupdate', () => {
-      if (video.currentTime >= 12) revealCopy();
-    });
-
-    video.addEventListener('play', () => hero.classList.remove('is-complete'));
-
-    video.addEventListener('error', () => {
-      hero.classList.add('is-complete');
-      revealCopy();
-    });
-
-    if (video.readyState >= 2) {
-      playVideo();
-    } else {
-      video.addEventListener('loadeddata', playVideo, { once: true });
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        video.pause();
-      } else if (video.paused && !video.ended) {
-        playVideo();
+    async function start(replay=false) {
+      finished=false;resume=false;
+      if(replay) video.currentTime=0;
+      hero.classList.remove('is-complete','is-copy-visible','m-video-complete','m-video-blocked');
+      play.hidden=true;
+      try { await video.play(); } catch(e) {
+        complete();hero.classList.add('m-video-blocked');play.hidden=false;label(play,'播放开场','Play intro');
       }
+    }
+    play.addEventListener('click',()=>start(true));
+    video.addEventListener('timeupdate',syncCopyReveal);
+    video.addEventListener('ended',()=>complete());video.addEventListener('error',()=>complete(true));
+    video.querySelector('source')?.addEventListener('error',()=>complete(true));
+    video.loop=false;video.removeAttribute('loop');
+    if(reduceMotion) { video.autoplay=false; video.removeAttribute('autoplay'); }
+    if(reduceMotion) complete();
+    else if(video.readyState>=2) start();
+    else video.addEventListener('loadeddata',()=>{if(!finished)start();},{once:true});
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden){resume=!finished&&!video.paused;video.pause();}
+      else if(resume&&!finished){resume=false;video.play().catch(()=>complete());}
     });
   })();
 

@@ -187,27 +187,5 @@
     if(entry.isIntersecting) { entry.target.classList.add('m-in-view'); reveal.unobserve(entry.target); }
   }),{threshold:.08});
   $$('.cards-panel__header,.value-panel__copy,.era-timeline__head,.pf-section-head,.about-folder__head,.about-media__head,.m-product-intro h1').forEach(el=>{el.classList.add('m-motion');reveal.observe(el);});
-  const hero=$('#hero.hero'), video=$('.hero__video');
-  if(hero&&video){
-    const control=mobile('m-video-controls'), play=localized('button','播放开场','Play intro'), skip=localized('button','跳过开场 ↓','Skip intro ↓');
-    play.type=skip.type='button';control.append(play,skip);hero.append(control);
-    video.muted=true;video.playsInline=true;
-    let skipped=false;
-    const complete=()=>hero.classList.add('m-video-complete');
-    async function start(){
-      if(!mq.matches) return;
-      skipped=false;
-      hero.classList.remove('m-video-complete','m-video-blocked');video.currentTime=0;
-      try { await video.play(); } catch(e){hero.classList.add('m-video-blocked');}
-    }
-    play.addEventListener('click',start);
-    skip.addEventListener('click',()=>{skipped=true;video.pause();complete();});
-    video.addEventListener('ended',complete);
-    video.addEventListener('error',()=>{complete();hero.classList.add('m-video-unavailable');});
-    video.addEventListener('play',()=>{if(mq.matches){if(skipped){video.pause();complete();}else hero.classList.remove('m-video-complete','m-video-blocked');}});
-    if(video.ended) complete();
-    else if(mq.matches) video.play().catch(()=>hero.classList.add('m-video-blocked'));
-    mq.addEventListener('change',()=>{if(mq.matches&&video.ended)complete();});
-  }
   // Shared pictures use native media sources; widening restores desktop automatically.
 })();

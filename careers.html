@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN" data-lang="zh">
 <head>
   <title>汤问致新_招聘</title>
@@ -8,10 +8,18 @@
   <meta name="description" content="加入汤问致新：嵌入式、运动控制、多模态算法、具身智能产品与 IP 视觉设计等岗位热招中。">
   <meta property="og:title" content="加入我们 · 汤问致新">
   <link rel="icon" href="image/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/main.css?v=20260929-mobile1" />
+  <link rel="stylesheet" href="assets/css/main.css?v=20261003-0907" />
   <link rel="stylesheet" href="assets/css/careers.css?v=20260821-type1" />
   <link rel="stylesheet" href="assets/css/adaptive.css?v=20260901-footer6" />
   <link rel="stylesheet" href="mobile/mobile.css?v=20260929-mobile3" media="(max-width: 768px)" />
+  <link rel="stylesheet" href="assets/css/feedback-0907.css?v=20261004-motion1">
+<link rel="stylesheet" href="assets/css/element-motion.css?v=20261004-elements2">
+<script>
+if ('IntersectionObserver' in window && window.CSS && CSS.supports('translate', '0 1px')) {
+  document.documentElement.classList.add('element-motion-ready');
+  setTimeout(function () { if (!window.elementMotionLoaded) document.documentElement.classList.remove('element-motion-ready'); }, 8000);
+}
+</script>
 </head>
 <body>
 
@@ -63,7 +71,7 @@
     <!-- 职位列表区域 -->
     <div class="jobs-section" id="jobs-anchor">
         <h2 class="section-title" data-zh="热招岗位" data-en="Open Positions">热招岗位</h2>
-        <div class="container">
+        <div class="container"><div class="job-filters" id="jobFilters" role="group" aria-label="岗位类别"></div><p id="jobCount" class="job-count" aria-live="polite"></p>
             <div class="job-grid" id="jobGrid">
                 <!-- 职位卡片将通过 JS 动态生成 -->
             </div>
@@ -71,9 +79,9 @@
     </div>
 
     <!-- 职位详情弹窗 (JD Modal) -->
-    <div class="modal-overlay" id="jdModal">
+    <div class="modal-overlay" id="jdModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <button class="close-btn" type="button" aria-label="关闭职位详情">&times;</button>
             <div class="modal-header">
                 <h2 class="modal-title" id="modalTitle" data-zh="职位名称" data-en="Job Title">职位名称</h2>
                 <div class="modal-meta" id="modalMeta" data-zh="部门 | 工作地点" data-en="Department | Location">部门 | 工作地点</div>
@@ -88,272 +96,8 @@
         </div>
     </div>
 
-    <!-- 脚本控制逻辑 -->
-    <script>
-        // 1. 配置你的 HR 接收邮箱
-        const hrEmail = "sunxy@techvoyage.site";
-        const emailSubjectPrefix = { zh: "【应聘】", en: "[Application] " };
-
-        // 2. 职位数据配置
-        const jobs = [
-            {
-                id: 1,
-                title: "嵌入式软件工程师",
-                titleEn: "Embedded Software Engineer",
-                department: "研发中心",
-                departmentEn: "R&D Center",
-                location: "哈尔滨 / 北京",
-                locationEn: "Harbin / Beijing",
-                experience: "2-5年",
-                experienceEn: "2–5 years",
-                tags: ["RTOS", "C/C++", "机器人"],
-                tagsEn: ["RTOS", "C/C++", "Robotics"],
-                jd: `岗位职责：
-1. 负责桌面机器人嵌入式系统驱动、通信协议与端侧模块开发；
-2. 参与传感器接入、运动控制接口与 OTA 升级链路实现；
-3. 与硬件、算法团队协作完成系统集成与性能优化；
-4. 编写技术文档，参与代码评审与版本发布。
-
-任职要求：
-1. 本科及以上学历，计算机、自动化、电子信息等相关专业；
-2. 熟练掌握 C/C++，有 RTOS 或 Linux 嵌入式开发经验；
-3. 了解 UART/SPI/I2C/CAN 等常见总线协议；
-4. 有机器人、智能硬件或消费电子项目经验者优先。`,
-                jdEn: `Responsibilities:
-1. Develop drivers, communication protocols, and on-device modules for desktop robot embedded systems;
-2. Contribute to sensor integration, motion-control interfaces, and OTA upgrade pipelines;
-3. Collaborate with hardware and algorithm teams on system integration and performance optimization;
-4. Write technical documentation and participate in code reviews and releases.
-
-Requirements:
-1. Bachelor's degree or above in Computer Science, Automation, Electronics, or a related field;
-2. Strong C/C++ skills with RTOS or Linux embedded development experience;
-3. Familiarity with common bus protocols such as UART/SPI/I2C/CAN;
-4. Experience in robotics, smart hardware, or consumer electronics is a plus.`
-            },
-            {
-                id: 2,
-                title: "机器人运动控制算法工程师",
-                titleEn: "Robot Motion Control Algorithm Engineer",
-                department: "算法中心",
-                departmentEn: "Algorithm Center",
-                location: "哈尔滨 / 北京",
-                locationEn: "Harbin / Beijing",
-                experience: "3年以上",
-                experienceEn: "3+ years",
-                tags: ["运动规划", "伺服控制", "Python/C++"],
-                tagsEn: ["Motion Planning", "Servo Control", "Python/C++"],
-                jd: `岗位职责：
-1. 负责桌面人形机器人关节运动规划、轨迹优化与示教学习算法研发；
-2. 参与微小回差伺服电机控制策略与表情/肢体协同输出调试；
-3. 搭建仿真与实机测试流程，提升动作自然度与稳定性；
-4. 与结构、嵌入式团队协作推进控制算法工程化落地。
-
-任职要求：
-1. 机器人、自动化、机械电子等相关专业硕士及以上学历；
-2. 熟悉运动学/动力学基础，有机器人控制或运动规划项目经验；
-3. 熟练使用 Python 或 C++，了解 ROS 或类似框架者优先；
-4. 有小型高 DOF 机器人或仿人机器人研发经验者优先。`,
-                jdEn: `Responsibilities:
-1. Develop joint motion planning, trajectory optimization, and learning-from-demonstration algorithms for desktop humanoid robots;
-2. Contribute to low-backlash servo control strategies and coordinated expression/body motion tuning;
-3. Build simulation and on-robot test workflows to improve motion naturalness and stability;
-4. Partner with mechanical and embedded teams to bring control algorithms into production.
-
-Requirements:
-1. Master's degree or above in Robotics, Automation, Mechatronics, or a related field;
-2. Solid kinematics/dynamics foundation with hands-on robot control or motion planning experience;
-3. Proficient in Python or C++; familiarity with ROS or similar frameworks is preferred;
-4. Experience with compact high-DOF or humanoid robots is a plus.`
-            },
-            {
-                id: 3,
-                title: "多模态算法工程师",
-                titleEn: "Multimodal Algorithm Engineer",
-                department: "算法中心",
-                departmentEn: "Algorithm Center",
-                location: "北京 / 深圳",
-                locationEn: "Beijing / Shenzhen",
-                experience: "2-5年",
-                experienceEn: "2–5 years",
-                tags: ["LLM", "多模态", "Agent"],
-                tagsEn: ["LLM", "Multimodal", "Agent"],
-                jd: `岗位职责：
-1. 负责端侧视觉/语音感知与云端大模型协同的交互算法研发；
-2. 参与情感计算、意图推理、角色人格与对话策略设计；
-3. 构建与维护角色数据库、用户偏好模型及反馈优化链路；
-4. 跟踪前沿多模态与 Agent 技术，推动产品智能能力迭代。
-
-任职要求：
-1. 计算机、人工智能等相关专业硕士及以上学历；
-2. 熟悉 PyTorch 等深度学习框架，有多模态或大模型应用经验；
-3. 了解语音识别、TTS、视觉理解或情感计算中的至少一个方向；
-4. 有对话系统、智能体或机器人交互项目经验者优先。`,
-                jdEn: `Responsibilities:
-1. Develop interaction algorithms that fuse on-device vision/speech perception with cloud-scale large models;
-2. Contribute to affective computing, intent reasoning, character persona, and dialogue strategy design;
-3. Build and maintain character databases, user preference models, and feedback optimization loops;
-4. Track advances in multimodal and agent technologies to raise product intelligence.
-
-Requirements:
-1. Master's degree or above in Computer Science, Artificial Intelligence, or a related field;
-2. Hands-on experience with deep learning frameworks such as PyTorch, plus multimodal or LLM applications;
-3. Familiarity with at least one of ASR, TTS, vision understanding, or affective computing;
-4. Experience with dialogue systems, agents, or robot interaction is a plus.`
-            },
-            {
-                id: 4,
-                title: "产品经理（具身智能）",
-                titleEn: "Product Manager (Embodied AI)",
-                department: "产品部",
-                departmentEn: "Product",
-                location: "北京 / 哈尔滨",
-                locationEn: "Beijing / Harbin",
-                experience: "3年以上",
-                experienceEn: "3+ years",
-                tags: ["C端硬件", "机器人", "IP"],
-                tagsEn: ["Consumer Hardware", "Robotics", "IP"],
-                jd: `岗位职责：
-1. 负责桌面级机器人智能体终端的产品规划、需求定义与版本迭代；
-2. 深入理解动漫/游戏 IP 用户需求，输出交互体验与功能 PRD；
-3. 协调研发、设计、供应链与市场团队，推动产品按时高质量交付；
-4. 跟踪用户反馈与数据表现，持续优化陪伴体验与商业化路径。
-
-任职要求：
-1. 本科及以上学历，3 年以上硬件或机器人/AI 产品经验；
-2. 对消费级机器人、IP 衍生品或情感陪伴产品有深入理解；
-3. 具备优秀的跨团队沟通与项目推动能力；
-4. 有二次元、潮玩或智能硬件创业经验者优先。`,
-                jdEn: `Responsibilities:
-1. Own product planning, requirements, and release iterations for desktop robot agent terminals;
-2. Deeply understand anime/game IP user needs and deliver interaction experience and feature PRDs;
-3. Coordinate R&D, design, supply chain, and marketing to ship on time at high quality;
-4. Track user feedback and metrics to refine companionship experience and commercialization paths.
-
-Requirements:
-1. Bachelor's degree or above with 3+ years of hardware or robotics/AI product experience;
-2. Strong understanding of consumer robots, IP merchandise, or emotional companion products;
-3. Excellent cross-team communication and project execution skills;
-4. Experience in ACG, designer toys, or smart-hardware startups is a plus.`
-            },
-            {
-                id: 5,
-                title: "视觉设计师（IP 还原方向）",
-                titleEn: "Visual Designer (IP Faithfulness)",
-                department: "设计中心",
-                departmentEn: "Design Center",
-                location: "北京 / 深圳",
-                locationEn: "Beijing / Shenzhen",
-                experience: "2-4年",
-                experienceEn: "2–4 years",
-                tags: ["角色设计", "Figma", "3D协同"],
-                tagsEn: ["Character Design", "Figma", "3D Collaboration"],
-                jd: `岗位职责：
-1. 负责机器人终端外观、表情系统与服饰配件的视觉设计；
-2. 参与 IP 角色还原方案，与结构/工艺团队协同评估可制造性；
-3. 输出官网、发布会与营销物料所需视觉资产；
-4. 维护产品设计规范与组件库。
-
-任职要求：
-1. 艺术设计、工业设计等相关专业，具有优秀的角色/产品审美；
-2. 熟练使用 Figma、PS、AI，了解 3D 协同流程者优先；
-3. 有 IP 衍生品、手办、潮玩或智能硬件设计经验者优先；
-4. 简历请附带作品集。`,
-                jdEn: `Responsibilities:
-1. Design visual systems for robot appearance, facial expressions, and costume/accessory looks;
-2. Contribute to IP character faithfulness concepts and assess manufacturability with mechanical/process teams;
-3. Deliver visual assets for the website, launch events, and marketing campaigns;
-4. Maintain product design guidelines and component libraries.
-
-Requirements:
-1. Background in art design, industrial design, or related fields with strong character/product taste;
-2. Proficient in Figma, Photoshop, and Illustrator; familiarity with 3D collaboration workflows preferred;
-3. Experience with IP merchandise, figures, designer toys, or smart hardware design is a plus;
-4. Please include a portfolio with your application.`
-            }
-        ];
-
-        // 3. 渲染职位卡片
-        const jobGrid = document.getElementById('jobGrid');
-        
-        jobs.forEach(job => {
-            const metaZh = `${job.department} · ${job.location} · ${job.experience}`;
-            const metaEn = `${job.departmentEn} · ${job.locationEn} · ${job.experienceEn}`;
-            const tagsHtml = job.tags.map((tag, i) =>
-                `<span data-zh="${tag}" data-en="${job.tagsEn[i]}">${tag}</span>`
-            ).join('');
-            
-            const card = document.createElement('div');
-            card.className = 'job-card';
-            card.onclick = () => openModal(job);
-            
-            card.innerHTML = `
-                <h3 class="job-title" data-zh="${job.title}" data-en="${job.titleEn}">${job.title}</h3>
-                <div class="job-meta" data-zh="${metaZh}" data-en="${metaEn}">${metaZh}</div>
-                <div class="job-tags">
-                    ${tagsHtml}
-                </div>
-            `;
-            jobGrid.appendChild(card);
-        });
-
-        // 4. 弹窗控制
-        const modal = document.getElementById('jdModal');
-
-        function currentLang() {
-            return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
-        }
-
-        function openModal(job) {
-            const lang = currentLang();
-            const titleEl = document.getElementById('modalTitle');
-            const metaEl = document.getElementById('modalMeta');
-            const jdEl = document.getElementById('modalJD');
-
-            const metaZh = `${job.department} | ${job.location} | ${job.experience}`;
-            const metaEn = `${job.departmentEn} | ${job.locationEn} | ${job.experienceEn}`;
-
-            titleEl.setAttribute('data-zh', job.title);
-            titleEl.setAttribute('data-en', job.titleEn);
-            titleEl.innerHTML = lang === 'en' ? job.titleEn : job.title;
-
-            metaEl.setAttribute('data-zh', metaZh);
-            metaEl.setAttribute('data-en', metaEn);
-            metaEl.innerHTML = lang === 'en' ? metaEn : metaZh;
-
-            jdEl.setAttribute('data-zh', job.jd);
-            jdEl.setAttribute('data-en', job.jdEn);
-            jdEl.innerText = lang === 'en' ? job.jdEn : job.jd;
-            
-            const applyBtn = document.getElementById('modalApplyBtn');
-            const title = lang === 'en' ? job.titleEn : job.title;
-            const subject = encodeURIComponent(
-                lang === 'en'
-                    ? `${emailSubjectPrefix.en}${title} - Candidate Name`
-                    : `${emailSubjectPrefix.zh}${title} - 候选人姓名`
-            );
-            const body = encodeURIComponent(
-                lang === 'en'
-                    ? `Hello,\n\nI am applying for the ${title} role.\nPlease find my resume attached.\n\nLooking forward to hearing from you.`
-                    : `您好，\n\n我在此申请【${title}】职位。\n我的简历已作为附件发送，请查收。\n\n期待您的回复！`
-            );
-            applyBtn.href = `mailto:${hrEmail}?subject=${subject}&body=${body}`;
-
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; 
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
+    <script src="assets/js/jobs-0907.js?v=20261003-1" defer></script>
+    <script src="assets/js/careers-0907.js?v=20261003-careers2" defer></script>
 
 <!-- FOOTER -->
 <footer class="site-footer" id="footer">
@@ -433,8 +177,10 @@ Requirements:
 </div>
 
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=20261003-0907" defer></script>
 
-  <script src="assets/js/adaptive.js?v=20260929-mobile3" defer></script>
+  <script src="assets/js/adaptive.js?v=20261003-0907" defer></script>
+  <script src="assets/js/site-motion.js?v=20261004-1" defer></script>
+<script defer src="assets/js/element-motion.js?v=20261004-elements2"></script>
 </body>
 </html>

@@ -1,0 +1,51 @@
+/* Initial state is available before first paint. Keep selectors in sync with JS. */
+html.element-motion-ready :is(
+  .feedback-value__media, .feedback-value__copy > .eyebrow,
+  .feedback-value__copy > h2, .value-feature, .stat-panel,
+  .explore-showcase, .era-timeline__head, .era-item,
+  .pr-layers__head, .pr-layers__stage, .pr-layers__rail, .scn-immersive__dock,
+  .about-hero__visual, .about-cred-card, .about-photo-stream,
+  .jobs-section .section-title, .jobs-section .container,
+  .footer-brand-card, .footer-main,
+  .m-gallery-card, .m-scene, .m-product-intro > h1, .m-product-intro > p,
+  .m-product-visual, .m-product-metrics, .m-model-tabs, .m-spec-panel,
+  .err-code, .err-title, .err-sub, .err-links
+):not(.element-entered) { opacity: 0; }
+
+html.element-motion-ready [data-element-motion].element-entered {
+  animation: element-rise var(--element-duration, 900ms) cubic-bezier(.25,1,.5,1) var(--element-delay, 0ms) both;
+}
+
+@keyframes element-rise {
+  from { opacity: 0; translate: 0 calc(var(--element-rise, 28px) + var(--element-drift, 0px)); }
+  to { opacity: 1; translate: 0 var(--element-drift, 0px); }
+}
+
+html.element-motion-ready .element-focus-visible {
+  opacity: 1 !important;
+  animation: none !important;
+  translate: none !important;
+}
+
+@media (max-width: 768px) {
+  html.element-motion-ready [data-element-motion].element-entered {
+    animation-duration: 700ms;
+    animation-delay: 0ms;
+    --element-rise: 18px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.element-motion-ready :is(
+    .feedback-value__media, .feedback-value__copy > .eyebrow,
+    .feedback-value__copy > h2, .value-feature, .stat-panel,
+    .explore-showcase, .era-timeline__head, .era-item,
+    .pr-layers__head, .pr-layers__stage, .pr-layers__rail, .scn-immersive__dock,
+    .about-hero__visual, .about-cred-card, .about-photo-stream,
+    .jobs-section .section-title, .jobs-section .container,
+    .footer-brand-card, .footer-main,
+    .m-gallery-card, .m-scene, .m-product-intro > h1, .m-product-intro > p,
+    .m-product-visual, .m-product-metrics, .m-model-tabs, .m-spec-panel,
+    .err-code, .err-title, .err-sub, .err-links
+  ) { opacity: 1 !important; animation: none !important; translate: none !important; }
+}
