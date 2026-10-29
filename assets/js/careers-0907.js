@@ -24,7 +24,9 @@
       button.setAttribute('aria-pressed', String(category === cat.id));
       button.addEventListener('click', () => {
         category = cat.id; render();
-        filters.querySelector(`[data-category="${cat.id}"]`).focus({preventScroll:true});
+        const selected=filters.querySelector(`[data-category="${cat.id}"]`);
+        selected.focus({preventScroll:true});
+        if(matchMedia('(max-width:768px)').matches) filters.scrollTo({left:selected.offsetLeft-filters.offsetLeft-12,behavior:'smooth'});
       });
       filters.append(button);
     });

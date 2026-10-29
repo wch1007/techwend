@@ -205,7 +205,7 @@
     function load(){
       if(!mq.matches || loaded) return;
       loaded=true;
-      const s=document.createElement('script'); s.src='mobile/mobile.js?v=20261003-0907'; s.defer=true; document.body.appendChild(s);
+      const s=document.createElement('script'); s.src='mobile/mobile.js?v=20261029-1'; s.defer=true; document.body.appendChild(s);
     }
     mq.addEventListener('change',load);
     load();

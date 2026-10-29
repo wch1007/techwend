@@ -15,14 +15,15 @@
 ## 当前版本
 
 - 已整合 0907 反馈及后续页面、文案、素材与布局调整。
-- 首页视频开场自动播放，文字按既定时间浮现，已移除跳过和重播按钮。
+- 首页视频开场自动播放，文字按既定时间浮现，手机端支持跳过开场。
 - 功能价值、陪伴价值、生态价值支持悬停展开与自动轮播；图片、标题、内容框按顺序浮现，离开整页后再次进入可重新播放。
 - 元素在首次绘制前设置动效初始状态，避免先展示最终态再浮现的闪烁。
-- 电脑端采用相邻整屏平滑切换；手机版保留自然触控滚动、响应式素材与产品装配交互。
-- 招聘页支持岗位筛选与列表内部滚动，电脑端岗位区域与页脚同屏展示。
+- 电脑端采用相邻整屏平滑切换；手机版保留自然触控滚动和响应式素材，装配演示支持轻扫、点选图层和进度条操作。
+- 手机端使用紧凑的悬浮导航与纵向菜单，普通主标题约 30px、区块标题 24–26px、正文约 14px；价值卡片手动展开，不自动轮播。
+- 招聘页支持岗位筛选；手机端分类横向滑动、岗位随整页滚动，电脑端岗位区域与页脚同屏展示。
 - 包含中英文切换、手机导航，支持系统减少动画偏好。
 
-关键文件：页面根目录 HTML、`assets/css/feedback-0907.css`、`assets/css/element-motion.css`、`assets/js/element-motion.js`、`mobile/mobile.css`、`mobile/mobile.js`、`mobile/images/`。
+关键文件：页面根目录 HTML、`assets/css/feedback-0907.css`、`assets/css/element-motion.css`、`assets/js/element-motion.js`、`mobile/mobile.css`、`mobile/refinements.css`、`mobile/mobile.js`、`mobile/images/`。手机端适配和验证记录见 `mobile/README.md`。
 
 ## 本地预览
 

@@ -464,7 +464,9 @@
     play.type = 'button';
     function label(el, zh, en) { el.dataset.zh=zh; el.dataset.en=en; el.textContent=document.documentElement.dataset.lang==='en'?en:zh; }
     label(play,'播放开场','Play intro');
-    controls.append(play); hero.append(controls); play.hidden=true;
+    const skip = document.createElement('button'); skip.type='button';
+    skip.className='hero-skip mobile-only'; skip.style.display='none'; label(skip,'跳过开场','Skip intro');
+    controls.append(play,skip); hero.append(controls); play.hidden=true;
     const COPY_LEAD_SECONDS = 1.5;
     let finished=false, resume=false;
     function syncCopyReveal() {
@@ -473,18 +475,19 @@
     }
     function complete(failed=false) {
       finished=true;video.pause();hero.classList.add('is-complete','is-copy-visible','m-video-complete');
-      play.hidden=true;
+      play.hidden=true;skip.hidden=true;
     }
     async function start(replay=false) {
       finished=false;resume=false;
       if(replay) video.currentTime=0;
       hero.classList.remove('is-complete','is-copy-visible','m-video-complete','m-video-blocked');
-      play.hidden=true;
+      play.hidden=true;skip.hidden=false;
       try { await video.play(); } catch(e) {
         complete();hero.classList.add('m-video-blocked');play.hidden=false;label(play,'播放开场','Play intro');
       }
     }
     play.addEventListener('click',()=>start(true));
+    skip.addEventListener('click',()=>complete());
     video.addEventListener('timeupdate',syncCopyReveal);
     video.addEventListener('ended',()=>complete());video.addEventListener('error',()=>complete(true));
     video.querySelector('source')?.addEventListener('error',()=>complete(true));

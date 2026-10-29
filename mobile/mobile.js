@@ -86,6 +86,33 @@
     const wrap=mobile('m-contact-social'); [...links.children].forEach(link=>wrap.append(link.cloneNode(true))); panel.append(wrap); panel.classList.add('mobile-contact-ready');
   }
   explore(); productIntro(); scenes(); specs(); contact();
+  function mobileMenu() {
+    const nav=$('#nav'), links=$('#nav-links'), burger=$('#burger');
+    if(!nav||!links||!burger) return;
+    const home=make('li','mobile-only'); home.style.display='none';
+    const homeLink=localized('a','首页','Home'); homeLink.href='index.html'; home.append(homeLink); links.prepend(home);
+    const backdrop=make('div','m-nav-backdrop'); backdrop.hidden=true; backdrop.setAttribute('aria-hidden','true');
+    nav.before(backdrop); burger.setAttribute('aria-controls','nav-links');
+    const close=()=>{if(links.classList.contains('open')) burger.click();};
+    function syncMenu() {
+      const open=mq.matches&&links.classList.contains('open');
+      document.documentElement.classList.toggle('m-menu-open',open); backdrop.hidden=!open;
+      burger.setAttribute('aria-label',document.documentElement.dataset.lang==='en'?(open?'Close menu':'Open menu'):(open?'关闭菜单':'打开菜单'));
+    }
+    new MutationObserver(syncMenu).observe(links,{attributes:true,attributeFilter:['class']});
+    new MutationObserver(syncMenu).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});
+    backdrop.addEventListener('click',close);
+    links.addEventListener('click',e=>{if(e.target.closest('a')) close();});
+    document.addEventListener('keydown',e=>{
+      if(!mq.matches||!links.classList.contains('open')||e.key!=='Tab') return;
+      const targets=[...nav.querySelectorAll('a,button')].filter(el=>el.getClientRects().length);
+      const first=targets[0],last=targets.at(-1);
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    });
+    mq.addEventListener('change',syncMenu); syncMenu();
+  }
+  mobileMenu();
   const current=location.pathname.split('/').pop()||'index.html';
   $$('#nav-links a').forEach(a=>{if(a.getAttribute('href')===current) a.setAttribute('aria-current','page');});
   document.addEventListener('keydown',event=>{
@@ -97,8 +124,8 @@
   function sync() {
     document.documentElement.classList.toggle('mobile-layout',mq.matches);
     if(lead) {
-      lead.dataset.zh=mq.matches?'继续向下滑动，看机器人从结构核心逐层成形。':originalLead.zh;
-      lead.dataset.en=mq.matches?'Scroll down to build your companion, layer by layer.':originalLead.en;
+      lead.dataset.zh=mq.matches?'左右轻扫或点击图层，看机器人逐层成形。':originalLead.zh;
+      lead.dataset.en=mq.matches?'Swipe or select a layer to see your companion take shape.':originalLead.en;
       lead.innerHTML=mq.matches?lead.dataset[document.documentElement.dataset.lang==='en'?'en':'zh']:originalLead.html;
     }
     if(phone) phone.setAttribute('href',mq.matches?'tel:+8618661996738':originalPhone);
@@ -112,43 +139,45 @@
     if(count<2) return;
     const controls=mobile('m-layer-controls'), status=make('div','m-layer-status');
     const number=document.createElement('strong');
-    status.append(localized('span','向上滑动 · 逐层装配','Scroll to assemble'),number);
+    status.append(localized('span','轻扫切换 · 逐层装配','Swipe to explore layers'),number);
     const scrub=document.createElement('input'); scrub.type='range';scrub.className='m-layer-scrub';
     scrub.min='0';scrub.max=String(count-1);scrub.step='1';scrub.value='0';
-    const exit=localized('a','继续探索 ↓','Keep exploring ↓');exit.href='#scenarios';exit.className='m-layer-exit';
-    controls.append(status,scrub,exit);inner.append(controls);root.classList.add('m-scroll-layers');
-    let active=-1, frame=0;
-    function geometry(){
-      const style=getComputedStyle(root), top=parseFloat(getComputedStyle(inner).top)||80;
-      const padding=parseFloat(style.paddingTop)||0, bottom=parseFloat(style.paddingBottom)||0;
-      return {start:root.getBoundingClientRect().top+scrollY+padding-top, travel:Math.max(1,root.offsetHeight-inner.offsetHeight-padding-bottom)};
-    }
-    function paint(){
-      frame=0;if(!mq.matches)return;
-      const {start,travel}=geometry();
-      const progress=Math.max(0,Math.min(1,(scrollY-start)/travel));
-      const index=Math.min(count-1,Math.floor(progress*count));
-      if(index!==active){
-        active=index;root.dispatchEvent(new CustomEvent('mobile-layer-change',{detail:index}));
-        number.textContent=String(index+1).padStart(2,'0')+' / '+String(count).padStart(2,'0');
-        scrub.value=String(index);
-      }
+    const actions=make('div','m-layer-actions');
+    const prev=localized('button','←','←'), next=localized('button','→','→'); prev.type=next.type='button';
+    actions.append(prev,scrub,next); controls.append(status,actions);inner.append(controls);root.classList.add('m-touch-layers');
+    let active=0;
+    function paint(index=active){
+      if(!mq.matches)return;
+      active=Math.max(0,Math.min(count-1,index)); index=active;
+      root.dispatchEvent(new CustomEvent('mobile-layer-change',{detail:index}));
+      number.textContent=String(index+1).padStart(2,'0')+' / '+String(count).padStart(2,'0');
+      scrub.value=String(index); prev.disabled=index===0; next.disabled=index===count-1;
       const en=document.documentElement.dataset.lang==='en', label=$('em',tabs[index]);
+      prev.setAttribute('aria-label',en?'Previous layer':'上一图层'); next.setAttribute('aria-label',en?'Next layer':'下一图层');
       scrub.setAttribute('aria-label',en?'Robot assembly progress':'机器人装配进度');
       scrub.setAttribute('aria-valuetext',`${index+1} / ${count} · ${label.dataset[en?'en':'zh']||label.textContent}`);
       scrub.style.setProperty('--assembly-progress',`${index/(count-1)*100}%`);
+      // Keep the selected chip visible without moving the document vertically.
+      const track=tabs[index].parentElement;
+      track.scrollTo({left:tabs[index].offsetLeft-track.offsetLeft-(track.clientWidth-tabs[index].offsetWidth)/2,behavior:'instant'});
     }
-    function schedule(){if(!frame&&mq.matches)frame=requestAnimationFrame(paint);}
-    scrub.addEventListener('input',()=>{
-      const {start,travel}=geometry(), index=Number(scrub.value);
-      // Move the document to this layer's midpoint, keeping scroll and drag in sync.
-      window.scrollTo({top:start+travel*(index+.5)/count,behavior:'instant'});paint();
+    scrub.addEventListener('input',()=>paint(Number(scrub.value)));
+    prev.addEventListener('click',()=>paint(active-1)); next.addEventListener('click',()=>paint(active+1));
+    tabs.forEach((tab,i)=>tab.addEventListener('click',e=>{if(mq.matches){e.stopImmediatePropagation();paint(i);}},{capture:true}));
+    const stage=$('.pr-layers__stage',root); let start=null;
+    stage.addEventListener('touchstart',e=>{start=e.touches.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;},{passive:true});
+    stage.addEventListener('touchcancel',()=>{start=null;},{passive:true});
+    stage.addEventListener('touchend',e=>{
+      if(!start||!mq.matches)return;
+      const touch=e.changedTouches[0], dx=touch.clientX-start.x, dy=touch.clientY-start.y; start=null;
+      if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.4)paint(active+(dx<0?1:-1));
+    },{passive:true});
+    root.addEventListener('keydown',e=>{
+      if(!mq.matches||e.target===scrub||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+      e.preventDefault(); paint(e.key==='Home'?0:e.key==='End'?count-1:active+(e.key==='ArrowRight'?1:-1));
     });
-    window.addEventListener('scroll',schedule,{passive:true});
-    window.addEventListener('resize',schedule,{passive:true});
-    new ResizeObserver(schedule).observe(inner);
-    new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});
-    mq.addEventListener('change',()=>{active=-1;schedule();});
+    new MutationObserver(()=>paint()).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang']});
+    mq.addEventListener('change',()=>paint());
     paint();
   }
   assemblyStory();
@@ -175,9 +204,10 @@
     }
     prev.addEventListener('click',()=>go(active-1));next.addEventListener('click',()=>go(active+1));
     track.addEventListener('scroll',paint,{passive:true});
+    new ResizeObserver(paint).observe(track);
     controls.append(prev,dots,next); track.after(controls); paint();
   }
-  ['.c3-row','.era-timeline__nodes','.m-scenes','.m-gallery','.about-timeline__grid'].forEach(rail);
+  ['.c3-row','.era-timeline__nodes','.m-scenes','.m-gallery','.about-timeline__grid','.pf-scenes-grid','.about-media__grid'].forEach(rail);
   $$('#stats .stat-panel').forEach(panel=>{
     const source=$('.stat-panel__detail',panel); if(!source) return;
     const details=document.createElement('details');details.className='mobile-only m-stat-details';details.style.display='none';

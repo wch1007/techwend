@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobile = matchMedia('(max-width:768px)');
 
   function formatEcosystemTitle() {
     const title = document.querySelector('#value-eco h2');
@@ -40,7 +41,7 @@
 
     function schedule() {
       stop();
-      if (!inView || hovered || reducedMotion || document.hidden) return;
+      if (!inView || hovered || reducedMotion || mobile.matches || document.hidden) return;
       timer = setTimeout(() => {
         activate(active + 1);
         schedule();
@@ -50,16 +51,20 @@
     items.forEach((item, index) => {
       const summary = item.querySelector('summary');
       item.addEventListener('pointerenter', () => {
+        if (mobile.matches) return;
         hovered = true;
         stop();
         activate(index);
       });
       summary?.addEventListener('click', event => {
         event.preventDefault();
+        if (mobile.matches && item.open) {
+          item.open=false; summary.setAttribute('aria-expanded','false'); stop(); return;
+        }
         activate(index);
         schedule();
       });
-      summary?.addEventListener('focus', () => activate(index));
+      summary?.addEventListener('focus', () => { if(!mobile.matches) activate(index); });
     });
 
     frame.addEventListener('pointerleave', () => {
@@ -73,6 +78,7 @@
     }, { threshold: [.45] }).observe(section);
 
     document.addEventListener('visibilitychange', schedule);
+    mobile.addEventListener('change', schedule);
     activate(active);
   });
 })();
